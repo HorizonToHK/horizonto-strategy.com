@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鉅源策略有限公司 | HORIZONTO STRATEGY LIMITED</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Noto+Serif+TC:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --deep-black: #050505;
+            --copper: #b87333;
+            --copper-light: #d4a574;
+            --copper-dark: #8b5a2b;
+            --gold: #c9a962;
+            --cream: #f5f0e8;
+            --gray: #2a2a2a;
+            --light-gray: #888;
+            --blue: #1a73e8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif TC', 'Cormorant Garamond', serif;
+            background-color: var(--deep-black);
+            color: var(--cream);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Language Toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            display: flex;
+            gap: 5px;
+            background: rgba(5, 5, 5, 0.9);
+            padding: 5px;
+            border: 1px solid var(--copper);
+        }
+
+        .lang-btn {
+            padding: 8px 15px;
+            background: transparent;
+            border: none;
+            color: var(--cream);
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: var(--copper);
+            color: var(--black);
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--copper);
+        }
+
+        /* Language Content */
+        .lang-zh,
+        .lang-en {
+            display: none;
+        }
+
+        body.zh .lang-zh {
+            display: block;
+        }
+
+        body.en .lang-en {
+            display: block;
+        }
+
+        body.zh .lang-zh-inline {
+            display: inline;
+        }
+
+        body.en .lang-en-inline {
+            display: inline;
+        }
+
+        body.zh .lang-en-inline,
+        body.en .lang-zh-inline {
+            display: none;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--copper-dark);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--copper);
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+
+        .logo-text span {
+            display: block;
+            font-size: 0.65rem;
+            color: var(--copper-light);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            transition: color 0.3s;
+            font-family: 'Cinzel', serif;
+        }
+
+        .nav-links a:hover {
+            color: var(--copper);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--copper);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--deep-black) 0%, var(--gray) 50%, var(--deep-black) 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b87333' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 40px;
+        }
+
+        .hero-logo {
+            width: 180px;
+            height: auto;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--copper);
+            margin-bottom: 10px;
+            letter-spacing: 8px;
+        }
+
+        .hero h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: var(--cream);
+        }
+
+        .hero-tagline {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--light-gray);
+            line-height: 2;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--copper) 0%, var(--copper-dark) 100%);
+            color: var(--black);
+            padding: 18px 50px;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, var(--copper-light) 0%, var(--copper) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(184, 115, 51, 0.3);
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background: var(--black);
+            padding: 100px 20px;
+            border-top: 1px solid var(--copper-dark);
+            border-bottom: 1px solid var(--copper-dark);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--copper);
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+        }
+
+        .section-header h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--light-gray);
+            letter-spacing: 3px;
+            font-style: italic;
+        }
+
+        .divider {
+            width: 80px;
+            height: 1px;
+            background: var(--copper);
+            margin: 20px auto;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .problem-card {
+            background: var(--gray);
+            padding: 40px 30px;
+            border-left: 3px solid var(--copper);
+            transition: transform 0.3s;
+        }
+
+        .problem-card:hover {
+            transform: translateX(10px);
+        }
+
+        .problem-card h4 {
+            color: var(--copper-light);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .problem-card p {
+            color: var(--light-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Services Section */
+        .services-section {
+            background: var(--deep-black);
+            padding: 100px 20px;
+        }
+
+        .service-category {
+            margin-bottom: 80px;
+            padding: 50px;
+            background: linear-gradient(135deg, var(--gray) 0%, var(--black) 100%);
+            border: 1px solid var(--copper-dark);
+            position: relative;
+        }
+
+        .service-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--copper), var(--copper-light), var(--copper));
+        }
+
+        .service-category h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--copper);
+            margin-bottom: 5px;
+            letter-spacing: 3px;
+        }
+
+        .service-category h3 a {
+            color: var(--copper);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-category h3 a:hover {
+            color: var(--copper-light);
+        }
+
+        .service-category h3 a::after {
+            content: '→';
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .service-category h3 a:hover::after {
+            transform: translateX(5px);
+        }
+
+        .service-category h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--copper-light);
+            margin-bottom: 25px;
+            font-style: italic;
+            letter-spacing: 2px;
+        }
+
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .service-item {
+            padding: 25px;
+            background: rgba(184, 115, 51, 0.05);
+            border: 1px solid rgba(184, 115, 51, 0.2);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-item:hover {
+            background: rgba(184, 115, 51, 0.1);
+            border-color: var(--copper);
+            transform: translateY(-5px);
+        }
+
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--copper), transparent);
+            transition: left 0.5s;
+        }
+
+        .service-item:hover::before {
+            left: 100%;
+        }
+
+        .service-item h5 {
+            color: var(--cream);
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .service-item p {
+            color: var(--light-gray);
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        .service-cta {
+            display: inline-block;
+            color: var(--copper);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Team Section */
+        .team-section {
+            background: var(--black);
+            padding: 100px 20px;
+            border-top: 1px solid var(--copper-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 50m-40 0a40,40 0 1,0 80,0a40,40 0 1,0 -80,0' fill='none' stroke='%23b87333' stroke-width='0.5' opacity='0.1'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .team-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .credentials-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .credential-card {
+            background: linear-gradient(135deg, var(--gray) 0%, rgba(184, 115, 51, 0.1) 100%);
+            padding: 30px;
+            text-align: center;
+            border: 1px solid var(--copper-dark);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .credential-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--copper);
+            box-shadow: 0 20px 40px rgba(184, 115, 51, 0.2);
+        }
+
+        .credential-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            background: var(--copper);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--black);
+        }
+
+        .credential-card h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--copper-light);
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .credential-card h5 {
+            color: var(--cream);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .credential-card p {
+            color: var(--light-gray);
+            font-size: 0.8rem;
+        }
+
+        .team-summary {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(184, 115, 51, 0.1) 0%, transparent 100%);
+            border: 1px solid var(--copper-dark);
+        }
+
+        .team-summary h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--copper);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+
+        .team-summary p {
+            color: var(--light-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Why Choose Us */
+        .why-section {
+            background: linear-gradient(135deg, var(--gray) 0%, var(--deep-black) 100%);
+            padding: 100px 20px;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--copper-dark);
+            transition: all 0.3s;
+        }
+
+        .why-card:hover {
+            border-color: var(--copper);
+            transform: translateY(-5px);
+        }
+
+        .why-icon {
+            font-size: 2.5rem;
+            color: var(--copper);
+            margin-bottom: 20px;
+        }
+
+        .why-card h4 {
+            color: var(--cream);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .why-card p {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Partners Slider */
+        .partners-section {
+            background: var(--black);
+            padding: 60px 0;
+            border-top: 1px solid var(--copper-dark);
+            border-bottom: 1px solid var(--copper-dark);
+            overflow: hidden;
+        }
+
+        .partners-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .partners-title h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--copper);
+            font-size: 1rem;
+            letter-spacing: 4px;
+        }
+
+        .partners-slider {
+            display: flex;
+            animation: slide 30s linear infinite;
+        }
+
+        .partners-track {
+            display: flex;
+            gap: 80px;
+            padding: 0 40px;
+        }
+
+        .partner-logo {
+            height: 50px;
+            width: auto;
+            opacity: 0.6;
+            filter: grayscale(100%);
+            transition: all 0.3s;
+        }
+
+        .partner-logo:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        .partner-placeholder {
+            height: 50px;
+            width: 120px;
+            background: linear-gradient(135deg, var(--gray) 0%, var(--copper-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream);
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .partner-placeholder:hover {
+            opacity: 1;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--deep-black);
+            padding: 100px 20px;
+            border-top: 1px solid var(--copper-dark);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--copper);
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+        }
+
+        .contact-detail {
+            margin-bottom: 25px;
+        }
+
+        .contact-detail label {
+            display: block;
+            color: var(--copper-light);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .contact-detail p {
+            color: var(--cream);
+            font-size: 0.95rem;
+        }
+
+        .contact-detail a {
+            color: var(--cream);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-detail a:hover {
+            color: var(--copper);
+        }
+
+        .social-links {
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border: 1px solid var(--copper);
+            color: var(--copper);
+            font-size: 1.2rem;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--copper);
+            color: var(--black);
+        }
+
+        /* Form */
+        .contact-form h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--copper);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+        }
+
+        .contact-form h4 {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--copper-light);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: var(--gray);
+            border: 1px solid var(--copper-dark);
+            color: var(--cream);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--copper);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-group select option {
+            background: var(--black);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--copper) 0%, var(--copper-dark) 100%);
+            color: var(--black);
+            border: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, var(--copper-light) 0%, var(--copper) 100%);
+        }
+
+        .form-note {
+            margin-top: 15px;
+            font-size: 0.75rem;
+            color: var(--light-gray);
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid var(--copper-dark);
+        }
+
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            color: var(--copper);
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        .footer-info {
+            color: var(--light-gray);
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-copyright {
+            color: var(--light-gray);
+            font-size: 0.75rem;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--gray);
+            padding: 60px;
+            text-align: center;
+            border: 1px solid var(--copper);
+            max-width: 400px;
+        }
+
+        .modal-content h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--copper);
+            margin-bottom: 20px;
+        }
+
+        .modal-content p {
+            color: var(--light-gray);
+            margin-bottom: 30px;
+        }
+
+        .modal-close {
+            background: var(--copper);
+            color: var(--black);
+            padding: 12px 30px;
+            border: none;
+            font-family: 'Cinzel', serif;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                letter-spacing: 4px;
+            }
+
+            .service-category {
+                padding: 30px 20px;
+            }
+
+            .nav-container {
+                padding: 15px 20px;
+            }
+
+            .lang-toggle {
+                top: 70px;
+                right: 10px;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .credentials-showcase {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .credentials-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="zh">
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" id="btn-zh" onclick="switchLang('zh')">繁中</button>
+        <button class="lang-btn" id="btn-en" onclick="switchLang('en')">EN</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/company logo.png" alt="Horizonto Strategy Logo">
+                <div class="logo-text">
+                    HORIZONTO
+                    <span>鉅源策略</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#services"><span class="lang-zh-inline">服務</span><span class="lang-en-inline">Services</span></a></li>
+                <li><a href="#team"><span class="lang-zh-inline">團隊</span><span class="lang-en-inline">Team</span></a></li>
+                <li><a href="#contact"><span class="lang-zh-inline">聯絡</span><span class="lang-en-inline">Contact</span></a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Chinese -->
+    <section class="hero lang-zh">
+        <div class="hero-content">
+            <img src="assets/company logo.png" alt="Horizonto Strategy" class="hero-logo">
+            <h1>鉅源策略有限公司</h1>
+            <h2>HORIZONTO STRATEGY LIMITED</h2>
+            <p class="hero-tagline">
+                當債務壓頂、監管來襲、危機四伏——<br>
+                你需要的不是普通顧問，而是<strong style="color: var(--copper);">戰略級企業智庫</strong>。<br><br>
+                專業團隊 · 精準策略 · 捍衛您的商業利益
+            </p>
+            <a href="#contact" class="cta-button">立即諮詢</a>
+        </div>
+    </section>
+
+    <!-- Hero Section - English -->
+    <section class="hero lang-en">
+        <div class="hero-content">
+            <img src="assets/company logo.png" alt="Horizonto Strategy" class="hero-logo">
+            <h1>HORIZONTO STRATEGY LIMITED</h1>
+            <h2>鉅源策略有限公司</h2>
+            <p class="hero-tagline">
+                When creditors circle, regulators investigate, and reputation hangs in the balance—<br>
+                you require not mere counsel, but <strong style="color: var(--copper);">strategic corporate intelligence</strong>.<br><br>
+                Elite Professionals · Precision Strategy · Safeguarding Your Commercial Interests
+            </p>
+            <a href="#contact" class="cta-button">BOOK CONSULTATION</a>
+        </div>
+    </section>
+
+    <!-- Problem Section - Chinese -->
+    <section class="problem-section lang-zh">
+        <div class="container">
+            <div class="section-header">
+                <h2>您是否正面臨這些困境？</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h4>債務重壓</h4>
+                    <p>銀行追數、財務公司騷擾、信貸評級崩潰——傳統方案只會讓您越陷越深。</p>
+                </div>
+                <div class="problem-card">
+                    <h4>監管調查</h4>
+                    <p>證監會、金管局、稅務局來函——一步走錯，執照不保、刑責難逃。</p>
+                </div>
+                <div class="problem-card">
+                    <h4>商譽危機</h4>
+                    <p>負面新聞、競爭對手攻擊、客戶流失——您的品牌正在失血。</p>
+                </div>
+                <div class="problem-card">
+                    <h4>交易風險</h4>
+                    <p>併購陷阱、投資騙局、隱藏負債——盡職調查不足將付出慘痛代價。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section - English -->
+    <section class="problem-section lang-en">
+        <div class="container">
+            <div class="section-header">
+                <h2>ARE YOU FACING THESE CRITICAL CHALLENGES?</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h4>Crushing Debt Burden</h4>
+                    <p>Banks pursuing recovery, finance companies harassing, credit ratings collapsing—conventional solutions merely exacerbate your predicament.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>Regulatory Scrutiny</h4>
+                    <p>SFC, HKMA, IRD correspondence arriving—one misstep and your licence is forfeit, criminal liability looms.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>Reputational Crisis</h4>
+                    <p>Adverse publicity, competitor attacks, client attrition—your brand equity is haemorrhaging.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>Transaction Risks</h4>
+                    <p>M&A pitfalls, investment fraud, concealed liabilities—inadequate due diligence exacts a devastating toll.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section - Chinese -->
+    <section class="services-section lang-zh" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>專業服務範疇</h2>
+                <div class="divider"></div>
+            </div>
+
+            <!-- Service Category 1 - IVA -->
+            <div class="service-category">
+                <h3><a href="http://hongkongiva.org" target="_blank">香港 IVA 辦事處</a></h3>
+                <h4>Hong Kong IVA Office</h4>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h5>個人自願安排 (IVA)</h5>
+                        <p>重獲財務自由，終結債務追討騷擾。保護您的資產、收入及家庭安寧，讓您專注事業發展。</p>
+                        <span class="service-cta">擺脫債務枷鎖 →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>企業清盤策略</h5>
+                        <p>體面退場，保全個人聲譽。專業規劃讓您在最短時間內完成程序，減少對個人信貸的長期影響。</p>
+                        <span class="service-cta">體面收官 →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>呆壞賬追收策略</h5>
+                        <p>無需昂貴訴訟費用，快速收回欠款。我們的談判策略讓債務人主動還款，為您節省時間與金錢。</p>
+                        <span class="service-cta">高效收回資金 →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>資產保護與隔離</h5>
+                        <p>未雨綢繆，守護畢生心血。合法架構讓您的資產免受未來不確定性威脅，安心傳承。</p>
+                        <span class="service-cta">守護您的財富 →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>法律效力還款協議</h5>
+                        <p>白紙黑字，保障雙方權益。具法律約束力的協議讓還款有據可依，避免日後爭議。</p>
+                        <span class="service-cta">確立法律保障 →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Category 2 - Compliance -->
+            <div class="service-category">
+                <h3>鉅源合規及法務</h3>
+                <h4>Compliance and Legal Affairs</h4>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h5>監管調查應對</h5>
+                        <p>從容面對監管機構，避免不必要的處罰。專業準備讓您在調查中佔據主動，保護您的牌照與聲譽。</p>
+                        <span class="service-cta">化危為機 →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>專業牌照辯護</h5>
+                        <p>捍衛您的執業資格，保住多年努力成果。我們的準備工作讓您在紀律聆訊中展現最佳狀態。</p>
+                        <span class="service-cta">保衛執業資格 →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>董事及股東責任評估</h5>
+                        <p>提前識別風險，避免個人承擔不必要責任。清晰了解法定義務，讓您作出明智決策。</p>
+                        <span class="service-cta">釐清責任邊界 →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>知識產權及爭議解決</h5>
+                        <p>快速止血，減少訴訟成本。談判解決讓雙方都能接受，避免曠日持久的法律戰。</p>
+                        <span class="service-cta">高效解決爭議 →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>危機公關管理</h5>
+                        <p>迅速控制輿論，重建公眾信心。專業的聲明與媒體策略讓您的品牌轉危為安。</p>
+                        <span class="service-cta">重塑品牌形象 →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Category 3 - Intelligence -->
+            <div class="service-category">
+                <h3>鉅源智庫</h3>
+                <h4>Corporate Intelligence</h4>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h5>併購前盡職調查</h5>
+                        <p>避免買入「地雷」，確保每分錢都花得值得。深度調查揭示隱藏風險，讓您談判時佔據優勢。</p>
+                        <span class="service-cta">明智投資決策 →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>投資者準備服務</h5>
+                        <p>讓投資者對您一見傾心。專業的商業計劃書與財務預測，大幅提升融資成功率。</p>
+                        <span class="service-cta">加速融資進程 →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>企業顧問年度保護</h5>
+                        <p>全年無憂營運，隨時獲得專業支援。有問題即時諮詢，防患於未然勝於亡羊補牢。</p>
+                        <span class="service-cta">全年專業護航 →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>專業資源整合</h5>
+                        <p>一站式解決所有專業需求。無需四處尋找，我們為您配對最合適的律師、會計師及專家。</p>
+                        <span class="service-cta">一站式專業服務 →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>KOL及網紅合作策劃</h5>
+                        <p>借力打力，快速建立品牌形象。與合適的意見領袖合作，讓您的品牌觸及更廣泛受眾。</p>
+                        <span class="service-cta">擴大品牌影響力 →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>初創專業網站建設</h5>
+                        <p>專業形象從網站開始。為您打造令人印象深刻的企業網站，提升客戶信任度與轉換率。</p>
+                        <span class="service-cta">建立專業形象 →</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section - English -->
+    <section class="services-section lang-en" id="services-en">
+        <div class="container">
+            <div class="section-header">
+                <h2>PROFESSIONAL SERVICES</h2>
+                <div class="divider"></div>
+            </div>
+
+            <!-- Service Category 1 - IVA -->
+            <div class="service-category">
+                <h3><a href="http://hongkongiva.org" target="_blank">Hong Kong IVA Office</a></h3>
+                <h4>香港 IVA 辦事處</h4>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h5>Individual Voluntary Arrangement (IVA)</h5>
+                        <p>Reclaim your financial liberty and terminate creditor harassment forthwith. Preserve your assets, income, and domestic tranquillity whilst advancing your career.</p>
+                        <span class="service-cta">Break Free from Debt →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>Corporate Winding-up Strategy</h5>
+                        <p>Execute a dignified exit preserving personal reputation intact. Our professional planning expedites proceedings whilst minimising long-term credit implications.</p>
+                        <span class="service-cta">Honourable Resolution →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>Bad Debt Recovery Strategy</h5>
+                        <p>Recover outstanding sums without incurring substantial litigation costs. Our negotiation methodology compels voluntary repayment, conserving your time and capital.</p>
+                        <span class="service-cta">Efficient Capital Recovery →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>Asset Protection & Segregation</h5>
+                        <p>Prudent foresight to safeguard your life's endeavours. Lawful structures shield your assets from future contingencies, ensuring secure succession.</p>
+                        <span class="service-cta">Protect Your Wealth →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>Legally Binding Repayment Agreements</h5>
+                        <p>Documented certainty protecting all parties' interests. Enforceable agreements establish clear repayment obligations, forestalling future disputes.</p>
+                        <span class="service-cta">Establish Legal Certainty →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Category 2 - Compliance -->
+            <div class="service-category">
+                <h3>Compliance and Legal Affairs</h3>
+                <h4>鉅源合規及法務</h4>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h5>Regulatory Investigation Response</h5>
+                        <p>Face regulatory bodies with composure, circumventing unnecessary penalties. Professional preparation positions you advantageously, protecting your licence and standing.</p>
+                        <span class="service-cta">Transform Crisis to Opportunity →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>Professional Licence Defence</h5>
+                        <p>Champion your practising credentials and preserve years of professional achievement. Our preparatory work ensures optimal presentation at disciplinary proceedings.</p>
+                        <span class="service-cta">Defend Your Credentials →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>Director & Shareholder Liability Assessment</h5>
+                        <p>Identify risks proactively, avoiding unwarranted personal exposure. Comprehensive understanding of statutory duties enables informed decision-making.</p>
+                        <span class="service-cta">Clarify Liability Boundaries →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>Intellectual Property & Dispute Resolution</h5>
+                        <p>Swift containment, minimising litigation expenditure. Negotiated settlements acceptable to all parties, avoiding protracted legal proceedings.</p>
+                        <span class="service-cta">Efficient Dispute Resolution →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>Crisis Public Relations Management</h5>
+                        <p>Expeditious narrative control, rebuilding public confidence. Professional statements and media strategy transform your brand from peril to prosperity.</p>
+                        <span class="service-cta">Restore Brand Reputation →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Category 3 - Intelligence -->
+            <div class="service-category">
+                <h3>Corporate Intelligence</h3>
+                <h4>鉅源智庫</h4>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h5>Pre-M&A Due Diligence</h5>
+                        <p>Avoid acquiring concealed liabilities, ensuring every pound is well-invested. Comprehensive investigation reveals hidden risks, affording negotiating advantage.</p>
+                        <span class="service-cta">Informed Investment Decisions →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>Investor Readiness Services</h5>
+                        <p>Captivate investors at first presentation. Professional business plans and financial projections substantially enhance fundraising success rates.</p>
+                        <span class="service-cta">Accelerate Funding →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>Annual Corporate Advisory Retainer</h5>
+                        <p>Operate with year-round assurance, accessing professional counsel instantly. Immediate consultation availability—prevention surpasses remedy.</p>
+                        <span class="service-cta">Year-Round Protection →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>Professional Resource Integration</h5>
+                        <p>Single-source resolution for all professional requirements. No extensive searching—we match you with optimal solicitors, accountants, and specialists.</p>
+                        <span class="service-cta">One-Stop Professional Services →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>Influencer & KOL Collaboration</h5>
+                        <p>Leverage influence for rapid brand establishment. Strategic partnerships with appropriate opinion leaders extend your brand to broader audiences.</p>
+                        <span class="service-cta">Amplify Brand Reach →</span>
+                    </div>
+                    <div class="service-item">
+                        <h5>Startup Professional Website Development</h5>
+                        <p>Professional image commences with your digital presence. We create impressive corporate websites that enhance client confidence and conversion rates.</p>
+                        <span class="service-cta">Establish Professional Presence →</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section - Chinese -->
+    <section class="team-section lang-zh" id="team">
+        <div class="container">
+            <div class="team-content">
+                <div class="section-header">
+                    <h2>管理團隊資歷</h2>
+                    <div class="divider"></div>
+                </div>
+                <div class="credentials-showcase">
+                    <div class="credential-card">
+                        <div class="credential-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h4>2×</h4>
+                        <h5>MBA</h5>
+                        <p>工商管理碩士</p>
+                    </div>
+                    <div class="credential-card">
+                        <div class="credential-icon"><i class="fas fa-calculator"></i></div>
+                        <h4>1×</h4>
+                        <h5>CPA</h5>
+                        <p>執業會計師</p>
+                    </div>
+                    <div class="credential-card">
+                        <div class="credential-icon"><i class="fas fa-chart-line"></i></div>
+                        <h4>2×</h4>
+                        <h5>CFA</h5>
+                        <p>特許金融分析師</p>
+                    </div>
+                    <div class="credential-card">
+                        <div class="credential-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                        <h4>1×</h4>
+                        <h5>TAX SPECIALIST</h5>
+                        <p>稅務專家</p>
+                    </div>
+                    <div class="credential-card">
+                        <div class="credential-icon"><i class="fas fa-server"></i></div>
+                        <h4>1×</h4>
+                        <h5>IS ENGINEER</h5>
+                        <p>資訊系統工程師</p>
+                    </div>
+                    <div class="credential-card">
+                        <div class="credential-icon"><i class="fas fa-tasks"></i></div>
+                        <h4>1×</h4>
+                        <h5>PMP</h5>
+                        <p>項目管理專業人士</p>
+                    </div>
+                    <div class="credential-card">
+                        <div class="credential-icon"><i class="fas fa-users-cog"></i></div>
+                        <h4>1×</h4>
+                        <h5>CPWP</h5>
+                        <p>認證專業人力資源規劃師</p>
+                    </div>
+                </div>
+                <div class="team-summary">
+                    <h4>跨領域專業團隊</h4>
+                    <p>匯聚財務、法務、稅務、科技及管理各領域精英，為您提供全方位戰略支援。多元專業背景讓我們能從不同角度分析問題，制定最優解決方案。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section - English -->
+    <section class="team-section lang-en" id="team-en">
+        <div class="container">
+            <div class="team-content">
+                <div class="section-header">
+                    <h2>MANAGEMENT TEAM CREDENTIALS</h2>
+                    <div class="divider"></div>
+                </div>
+                <div class="credentials-showcase">
+                    <div class="credential-card">
+                        <div class="credential-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h4>2×</h4>
+                        <h5>MBA</h5>
+                        <p>Master of Business Administration</p>
+                    </div>
+                    <div class="credential-card">
+                        <div class="credential-icon"><i class="fas fa-calculator"></i></div>
+                        <h4>1×</h4>
+                        <h5>CPA</h5>
+                        <p>Certified Public Accountant</p>
+                    </div>
+                    <div class="credential-card">
+                        <div class="credential-icon"><i class="fas fa-chart-line"></i></div>
+                        <h4>2×</h4>
+                        <h5>CFA</h5>
+                        <p>Chartered Financial Analyst</p>
+                    </div>
+                    <div class="credential-card">
+                        <div class="credential-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                        <h4>1×</h4>
+                        <h5>TAX SPECIALIST</h5>
+                        <p>Taxation Specialist</p>
+                    </div>
+                    <div class="credential-card">
+                        <div class="credential-icon"><i class="fas fa-server"></i></div>
+                        <h4>1×</h4>
+                        <h5>IS ENGINEER</h5>
+                        <p>Information Systems Engineer</p>
+                    </div>
+                    <div class="credential-card">
+                        <div class="credential-icon"><i class="fas fa-tasks"></i></div>
+                        <h4>1×</h4>
+                        <h5>PMP</h5>
+                        <p>Project Management Professional</p>
+                    </div>
+                    <div class="credential-card">
+                        <div class="credential-icon"><i class="fas fa-users-cog"></i></div>
+                        <h4>1×</h4>
+                        <h5>CPWP</h5>
+                        <p>Certified Professional Workforce Planner</p>
+                    </div>
+                </div>
+                <div class="team-summary">
+                    <h4>Multidisciplinary Professional Team</h4>
+                    <p>Uniting elite expertise across finance, legal, taxation, technology, and management disciplines to deliver comprehensive strategic support. Our diverse professional backgrounds enable multi-faceted problem analysis and optimal solution formulation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us - Chinese -->
+    <section class="why-section lang-zh">
+        <div class="container">
+            <div class="section-header">
+                <h2>為何選擇鉅源？</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-user-shield"></i></div>
+                    <h4>專業顧問服務模式</h4>
+                    <p>以合理費用獲得策略級專業支援。我們整合各領域專家資源，為您提供全面的商業顧問服務。</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-network-wired"></i></div>
+                    <h4>精英專業網絡</h4>
+                    <p>整合律師、會計師、核數師、估值師——一站式解決複雜商業問題。</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-chess-queen"></i></div>
+                    <h4>戰略級介入</h4>
+                    <p>不只是顧問，是您的商業戰略夥伴。危機當前，我們與您並肩作戰。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us - English -->
+    <section class="why-section lang-en">
+        <div class="container">
+            <div class="section-header">
+                <h2>WHY HORIZONTO?</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-user-shield"></i></div>
+                    <h4>Professional Advisory Model</h4>
+                    <p>Access strategic-level professional support at reasonable cost. We integrate expert resources across disciplines to deliver comprehensive commercial advisory services.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-network-wired"></i></div>
+                    <h4>Elite Professional Network</h4>
+                    <p>Integrating solicitors, accountants, auditors, and valuers—single-source resolution for complex commercial matters.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-chess-queen"></i></div>
+                    <h4>Strategic-Level Intervention</h4>
+                    <p>Beyond mere consultancy—your strategic commercial partner. When crisis strikes, we stand beside you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Slider -->
+    <section class="partners-section">
+        <div class="partners-title">
+            <h3 class="lang-zh">合作夥伴</h3>
+            <h3 class="lang-en">OUR PARTNERS</h3>
+        </div>
+        <div class="partners-slider">
+            <div class="partners-track">
+                <div class="partner-placeholder">PARTNER 1</div>
+                <div class="partner-placeholder">PARTNER 2</div>
+                <div class="partner-placeholder">PARTNER 3</div>
+                <div class="partner-placeholder">PARTNER 4</div>
+                <div class="partner-placeholder">PARTNER 5</div>
+                <div class="partner-placeholder">PARTNER 6</div>
+                <div class="partner-placeholder">PARTNER 7</div>
+                <div class="partner-placeholder">PARTNER 8</div>
+                <div class="partner-placeholder">PARTNER 1</div>
+                <div class="partner-placeholder">PARTNER 2</div>
+                <div class="partner-placeholder">PARTNER 3</div>
+                <div class="partner-placeholder">PARTNER 4</div>
+                <div class="partner-placeholder">PARTNER 5</div>
+                <div class="partner-placeholder">PARTNER 6</div>
+                <div class="partner-placeholder">PARTNER 7</div>
+                <div class="partner-placeholder">PARTNER 8</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section - Chinese -->
+    <section class="contact-section lang-zh" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>預約諮詢</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>聯絡資料</h3>
+                    <div class="contact-detail">
+                        <label>公司名稱</label>
+                        <p>鉅源策略有限公司<br>HORIZONTO STRATEGY LIMITED</p>
+                    </div>
+                    <div class="contact-detail">
+                        <label>地址</label>
+                        <p>香港長沙灣長裕街10號<br>億利工業中心2期17樓A5-2室</p>
+                    </div>
+                    <div class="contact-detail">
+                        <label>商業登記號碼</label>
+                        <p>79587051</p>
+                    </div>
+                    <div class="contact-detail">
+                        <label>電郵</label>
+                        <p><a href="mailto:info@horizonto-strategy.com">info@horizonto-strategy.com</a></p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" onclick="openModal(); return false;"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>查詢表格</h3>
+                    <h4>您的資料將嚴格保密</h4>
+                    <form action="https://formsubmit.co/horizonto.strategy@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="網站查詢 | Website Enquiry">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        
+                        <div class="form-group">
+                            <label>姓名 *</label>
+                            <input type="text" name="name" required placeholder="您的姓名">
+                        </div>
+                        <div class="form-group">
+                            <label>公司名稱</label>
+                            <input type="text" name="company" placeholder="公司名稱（選填）">
+                        </div>
+                        <div class="form-group">
+                            <label>電郵 *</label>
+                            <input type="email" name="email" required placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label>聯絡電話 *</label>
+                            <input type="tel" name="phone" required placeholder="+852 XXXX XXXX">
+                        </div>
+                        <div class="form-group">
+                            <label>服務類別 *</label>
+                            <select name="service" required>
+                                <option value="">-- 請選擇 --</option>
+                                <option value="IVA 債務重組">IVA 債務重組</option>
+                                <option value="合規及法務">合規及法務</option>
+                                <option value="企業智庫">企業智庫</option>
+                                <option value="網站建設">初創網站建設</option>
+                                <option value="其他">其他</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>查詢詳情 *</label>
+                            <textarea name="message" required placeholder="請簡述您的情況及需要"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">提交查詢</button>
+                        <p class="form-note">所有資料將嚴格保密</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section - English -->
+    <section class="contact-section lang-en" id="contact-en">
+        <div class="container">
+            <div class="section-header">
+                <h2>SCHEDULE YOUR CONSULTATION</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Details</h3>
+                    <div class="contact-detail">
+                        <label>COMPANY</label>
+                        <p>HORIZONTO STRATEGY LIMITED<br>鉅源策略有限公司</p>
+                    </div>
+                    <div class="contact-detail">
+                        <label>ADDRESS</label>
+                        <p>RM A5-2, 17/F, BILLION PLAZA 2<br>10 CHEUNG YUE ST, CHEUNG SHA WAN<br>HONG KONG</p>
+                    </div>
+                    <div class="contact-detail">
+                        <label>BRN</label>
+                        <p>79587051</p>
+                    </div>
+                    <div class="contact-detail">
+                        <label>EMAIL</label>
+                        <p><a href="mailto:info@horizonto-strategy.com">info@horizonto-strategy.com</a></p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" onclick="openModal(); return false;"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Enquiry Form</h3>
+                    <h4>Your Information is Strictly Confidential</h4>
+                    <form action="https://formsubmit.co/horizonto.strategy@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Website Enquiry | 網站查詢">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        
+                        <div class="form-group">
+                            <label>NAME *</label>
+                            <input type="text" name="name" required placeholder="Your Full Name">
+                        </div>
+                        <div class="form-group">
+                            <label>COMPANY</label>
+                            <input type="text" name="company" placeholder="Company Name (Optional)">
+                        </div>
+                        <div class="form-group">
+                            <label>EMAIL *</label>
+                            <input type="email" name="email" required placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label>PHONE *</label>
+                            <input type="tel" name="phone" required placeholder="+852 XXXX XXXX">
+                        </div>
+                        <div class="form-group">
+                            <label>SERVICE CATEGORY *</label>
+                            <select name="service" required>
+                                <option value="">-- Please Select --</option>
+                                <option value="IVA Debt Restructuring">IVA Debt Restructuring</option>
+                                <option value="Compliance & Legal Affairs">Compliance & Legal Affairs</option>
+                                <option value="Corporate Intelligence">Corporate Intelligence</option>
+                                <option value="Startup Website">Startup Website Development</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>ENQUIRY DETAILS *</label>
+                            <textarea name="message" required placeholder="Please briefly describe your situation and requirements"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">SUBMIT ENQUIRY</button>
+                        <p class="form-note">All information shall be kept strictly confidential</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">HORIZONTO STRATEGY</div>
+            <p class="footer-info">鉅源策略有限公司 · HORIZONTO STRATEGY LIMITED</p>
+            <p class="footer-info">BRN: 79587051</p>
+            <p class="footer-copyright">
+                © 2026 Horizonto Strategy Limited. All Rights Reserved.<br>
+                <span class="lang-zh-inline">專業企業顧問服務 · 債務重組 · 合規法務 · 企業智庫</span>
+                <span class="lang-en-inline">Professional Corporate Advisory · Debt Restructuring · Compliance & Legal · Corporate Intelligence</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- LinkedIn Modal -->
+    <div class="modal" id="linkedinModal">
+        <div class="modal-content">
+            <h3>UNDER MAINTENANCE</h3>
+            <p class="lang-zh">我們的LinkedIn頁面正在維護中，敬請稍候。</p>
+            <p class="lang-en">Our LinkedIn page is currently under maintenance. Please check back soon.</p>
+            <button class="modal-close" onclick="closeModal()"><span class="lang-zh-inline">關閉</span><span class="lang-en-inline">CLOSE</span></button>
+        </div>
+    </div>
+
+    <script>
+        // Language Switching
+        function switchLang(lang) {
+            document.body.classList.remove('zh', 'en');
+            document.body.classList.add(lang);
+            
+            document.getElementById('btn-zh').classList.remove('active');
+            document.getElementById('btn-en').classList.remove('active');
+            document.getElementById('btn-' + lang).classList.add('active');
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'en';
+            
+            // Store preference
+            localStorage.setItem('horizonto-lang', lang);
+        }
+
+        // Check stored language preference
+        document.addEventListener('DOMContentLoaded', function() {
+            const storedLang = localStorage.getItem('horizonto-lang');
+            if (storedLang) {
+                switchLang(storedLang);
+            }
+        });
+
+        // Modal Functions
+        function openModal() {
+            document.getElementById('linkedinModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('linkedinModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('linkedinModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(5, 5, 5, 0.98)';
+            } else {
+                nav.style.background = 'rgba(5, 5, 5, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
