@@ -39,71 +39,46 @@
             padding: 0 20px;
         }
 
-        /* Language Toggle */
-        .lang-toggle {
+        /* Language Switcher */
+        .language-bar {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 0;
+            width: 100%;
+            background: var(--deep-black);
             z-index: 1001;
+            border-bottom: 1px solid var(--copper-dark);
+            padding: 8px 0;
+        }
+
+        .language-container {
             display: flex;
-            gap: 5px;
-            background: rgba(5, 5, 5, 0.9);
-            padding: 5px;
-            border: 1px solid var(--copper);
+            justify-content: flex-end;
+            padding: 0 40px;
+            gap: 15px;
         }
 
         .lang-btn {
-            padding: 8px 15px;
             background: transparent;
-            border: none;
-            color: var(--cream);
+            border: 1px solid var(--copper);
+            color: var(--copper);
+            padding: 5px 15px;
             font-family: 'Cinzel', serif;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
             cursor: pointer;
             transition: all 0.3s;
         }
 
+        .lang-btn:hover,
         .lang-btn.active {
             background: var(--copper);
             color: var(--black);
         }
 
-        .lang-btn:hover:not(.active) {
-            color: var(--copper);
-        }
-
-        /* Language Content */
-        .lang-zh,
-        .lang-en {
-            display: none;
-        }
-
-        body.zh .lang-zh {
-            display: block;
-        }
-
-        body.en .lang-en {
-            display: block;
-        }
-
-        body.zh .lang-zh-inline {
-            display: inline;
-        }
-
-        body.en .lang-en-inline {
-            display: inline;
-        }
-
-        body.zh .lang-en-inline,
-        body.en .lang-zh-inline {
-            display: none;
-        }
-
         /* Navigation */
         nav {
             position: fixed;
-            top: 0;
+            top: 38px;
             width: 100%;
             background: rgba(5, 5, 5, 0.95);
             backdrop-filter: blur(10px);
@@ -131,7 +106,7 @@
 
         .logo-text {
             font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             color: var(--copper);
             letter-spacing: 3px;
             font-weight: 600;
@@ -139,7 +114,7 @@
 
         .logo-text span {
             display: block;
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             color: var(--copper-light);
             letter-spacing: 2px;
         }
@@ -180,7 +155,7 @@
             background: linear-gradient(135deg, var(--deep-black) 0%, var(--gray) 50%, var(--deep-black) 100%);
             position: relative;
             overflow: hidden;
-            padding-top: 80px;
+            padding-top: 120px;
         }
 
         .hero::before {
@@ -224,9 +199,17 @@
         .hero-tagline {
             font-size: 1.1rem;
             max-width: 700px;
-            margin: 0 auto 40px;
+            margin: 0 auto 20px;
             color: var(--light-gray);
             line-height: 2;
+        }
+
+        .hero-tagline-en {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--copper-light);
+            margin-bottom: 40px;
         }
 
         .cta-button {
@@ -340,6 +323,14 @@
             background: linear-gradient(90deg, var(--copper), var(--copper-light), var(--copper));
         }
 
+        .service-category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
         .service-category h3 {
             font-family: 'Cinzel', serif;
             font-size: 1.4rem;
@@ -348,57 +339,47 @@
             letter-spacing: 3px;
         }
 
-        .service-category h3 a {
-            color: var(--copper);
-            text-decoration: none;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .service-category h3 a:hover {
-            color: var(--copper-light);
-        }
-
-        .service-category h3 a::after {
-            content: '→';
-            font-size: 1.2rem;
-            transition: transform 0.3s;
-        }
-
-        .service-category h3 a:hover::after {
-            transform: translateX(5px);
-        }
-
         .service-category h4 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1rem;
             color: var(--copper-light);
-            margin-bottom: 25px;
             font-style: italic;
             letter-spacing: 2px;
         }
 
+        .external-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--copper);
+            color: var(--black);
+            padding: 10px 20px;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .external-link:hover {
+            background: var(--copper-light);
+            transform: translateY(-2px);
+        }
+
         .service-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
 
         .service-item {
-            padding: 25px;
+            padding: 30px;
             background: rgba(184, 115, 51, 0.05);
             border: 1px solid rgba(184, 115, 51, 0.2);
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
-        }
-
-        .service-item:hover {
-            background: rgba(184, 115, 51, 0.1);
-            border-color: var(--copper);
-            transform: translateY(-5px);
         }
 
         .service-item::before {
@@ -407,8 +388,8 @@
             top: 0;
             left: -100%;
             width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--copper), transparent);
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(184, 115, 51, 0.1), transparent);
             transition: left 0.5s;
         }
 
@@ -416,25 +397,51 @@
             left: 100%;
         }
 
+        .service-item:hover {
+            background: rgba(184, 115, 51, 0.1);
+            border-color: var(--copper);
+            transform: translateY(-5px);
+        }
+
         .service-item h5 {
+            color: var(--copper);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .service-item .benefit {
             color: var(--cream);
-            font-size: 1rem;
+            font-size: 0.95rem;
             margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .service-item .benefit-icon {
+            color: var(--copper);
+            margin-right: 8px;
         }
 
         .service-item p {
             color: var(--light-gray);
             font-size: 0.85rem;
-            margin-bottom: 15px;
+            line-height: 1.7;
         }
 
         .service-cta {
             display: inline-block;
+            margin-top: 15px;
             color: var(--copper);
             font-size: 0.8rem;
-            letter-spacing: 1px;
-            font-weight: 600;
-            text-transform: uppercase;
+            text-decoration: none;
+            border-bottom: 1px solid var(--copper);
+            padding-bottom: 2px;
+            transition: all 0.3s;
+        }
+
+        .service-cta:hover {
+            color: var(--copper-light);
+            border-color: var(--copper-light);
         }
 
         /* Team Section */
@@ -453,8 +460,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 50m-40 0a40,40 0 1,0 80,0a40,40 0 1,0 -80,0' fill='none' stroke='%23b87333' stroke-width='0.5' opacity='0.1'/%3E%3C/svg%3E");
-            opacity: 0.3;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 50m-40 0a40,40 0 1,0 80,0a40,40 0 1,0 -80,0' fill='none' stroke='%23b87333' stroke-opacity='0.05' stroke-width='0.5'/%3E%3C/svg%3E");
+            opacity: 0.5;
         }
 
         .team-content {
@@ -466,17 +473,17 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         .credential-card {
-            background: linear-gradient(135deg, var(--gray) 0%, rgba(184, 115, 51, 0.1) 100%);
-            padding: 30px;
-            text-align: center;
+            background: linear-gradient(135deg, var(--gray) 0%, var(--deep-black) 100%);
             border: 1px solid var(--copper-dark);
-            transition: all 0.3s;
+            padding: 35px 25px;
+            text-align: center;
             position: relative;
+            transition: all 0.3s;
         }
 
         .credential-card:hover {
@@ -485,36 +492,42 @@
             box-shadow: 0 20px 40px rgba(184, 115, 51, 0.2);
         }
 
-        .credential-icon {
+        .credential-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 60px;
-            height: 60px;
-            margin: 0 auto 20px;
+            height: 3px;
             background: var(--copper);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--black);
         }
 
-        .credential-card h4 {
+        .credential-icon {
+            font-size: 2.5rem;
+            color: var(--copper);
+            margin-bottom: 20px;
+        }
+
+        .credential-count {
             font-family: 'Cinzel', serif;
+            font-size: 2rem;
             color: var(--copper-light);
-            font-size: 1.5rem;
-            margin-bottom: 5px;
+            font-weight: 700;
         }
 
-        .credential-card h5 {
-            color: var(--cream);
+        .credential-title {
+            font-family: 'Cinzel', serif;
             font-size: 0.9rem;
-            margin-bottom: 10px;
+            color: var(--cream);
             letter-spacing: 2px;
+            margin-top: 10px;
         }
 
-        .credential-card p {
+        .credential-desc {
+            font-size: 0.75rem;
             color: var(--light-gray);
-            font-size: 0.8rem;
+            margin-top: 8px;
         }
 
         .team-summary {
@@ -528,14 +541,13 @@
         .team-summary h4 {
             font-family: 'Cinzel', serif;
             color: var(--copper);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 15px;
-            letter-spacing: 3px;
         }
 
         .team-summary p {
             color: var(--light-gray);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
@@ -576,6 +588,7 @@
             color: var(--cream);
             font-size: 1.1rem;
             margin-bottom: 15px;
+            font-family: 'Cinzel', serif;
         }
 
         .why-card p {
@@ -585,19 +598,19 @@
 
         /* Partners Slider */
         .partners-section {
-            background: var(--black);
+            background: var(--deep-black);
             padding: 60px 0;
             border-top: 1px solid var(--copper-dark);
             border-bottom: 1px solid var(--copper-dark);
             overflow: hidden;
         }
 
-        .partners-title {
+        .partners-header {
             text-align: center;
             margin-bottom: 40px;
         }
 
-        .partners-title h3 {
+        .partners-header h3 {
             font-family: 'Cinzel', serif;
             color: var(--copper);
             font-size: 1rem;
@@ -635,11 +648,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--cream);
+            color: var(--copper-light);
             font-family: 'Cinzel', serif;
             font-size: 0.7rem;
             letter-spacing: 1px;
-            opacity: 0.6;
+            opacity: 0.7;
             transition: opacity 0.3s;
         }
 
@@ -883,6 +896,23 @@
             cursor: pointer;
         }
 
+        /* Language Display */
+        .lang-zh {
+            display: block;
+        }
+
+        .lang-en {
+            display: none;
+        }
+
+        body.english .lang-zh {
+            display: none;
+        }
+
+        body.english .lang-en {
+            display: block;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -909,17 +939,16 @@
                 padding: 15px 20px;
             }
 
-            .lang-toggle {
-                top: 70px;
-                right: 10px;
-            }
-
-            .logo img {
-                height: 40px;
+            .language-container {
+                padding: 0 20px;
             }
 
             .credentials-showcase {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .service-category-header {
+                flex-direction: column;
             }
         }
 
@@ -930,11 +959,13 @@
         }
     </style>
 </head>
-<body class="zh">
-    <!-- Language Toggle -->
-    <div class="lang-toggle">
-        <button class="lang-btn active" id="btn-zh" onclick="switchLang('zh')">繁中</button>
-        <button class="lang-btn" id="btn-en" onclick="switchLang('en')">EN</button>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-bar">
+        <div class="language-container">
+            <button class="lang-btn active" onclick="setLanguage('zh')">繁體中文</button>
+            <button class="lang-btn" onclick="setLanguage('en')">ENGLISH</button>
+        </div>
     </div>
 
     <!-- Navigation -->
@@ -948,9 +979,9 @@
                 </div>
             </div>
             <ul class="nav-links">
-                <li><a href="#services"><span class="lang-zh-inline">服務</span><span class="lang-en-inline">Services</span></a></li>
-                <li><a href="#team"><span class="lang-zh-inline">團隊</span><span class="lang-en-inline">Team</span></a></li>
-                <li><a href="#contact"><span class="lang-zh-inline">聯絡</span><span class="lang-en-inline">Contact</span></a></li>
+                <li><a href="#services" class="lang-zh">服務</a><a href="#services" class="lang-en">SERVICES</a></li>
+                <li><a href="#team" class="lang-zh">團隊</a><a href="#team" class="lang-en">TEAM</a></li>
+                <li><a href="#contact" class="lang-zh">聯絡</a><a href="#contact" class="lang-en">CONTACT</a></li>
             </ul>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
@@ -966,8 +997,10 @@
             <h2>HORIZONTO STRATEGY LIMITED</h2>
             <p class="hero-tagline">
                 當債務壓頂、監管來襲、危機四伏——<br>
-                你需要的不是普通顧問，而是<strong style="color: var(--copper);">戰略級企業智庫</strong>。<br><br>
-                專業團隊 · 精準策略 · 捍衛您的商業利益
+                你需要的不是普通顧問，而是<strong style="color: var(--copper);">戰略級智庫</strong>。
+            </p>
+            <p class="hero-tagline-en">
+                專業合規顧問 · 企業危機管理 · 戰略智庫服務
             </p>
             <a href="#contact" class="cta-button">立即諮詢</a>
         </div>
@@ -977,12 +1010,14 @@
     <section class="hero lang-en">
         <div class="hero-content">
             <img src="assets/company logo.png" alt="Horizonto Strategy" class="hero-logo">
-            <h1>HORIZONTO STRATEGY LIMITED</h1>
+            <h1>HORIZONTO STRATEGY</h1>
             <h2>鉅源策略有限公司</h2>
             <p class="hero-tagline">
-                When creditors circle, regulators investigate, and reputation hangs in the balance—<br>
-                you require not mere counsel, but <strong style="color: var(--copper);">strategic corporate intelligence</strong>.<br><br>
-                Elite Professionals · Precision Strategy · Safeguarding Your Commercial Interests
+                When creditors circle, regulators investigate, and reputation hangs by a thread—<br>
+                you require not mere counsel, but <strong style="color: var(--copper);">strategic intervention</strong>.
+            </p>
+            <p class="hero-tagline-en">
+                Professional Compliance Advisory · Corporate Crisis Management · Strategic Intelligence
             </p>
             <a href="#contact" class="cta-button">BOOK CONSULTATION</a>
         </div>
@@ -1026,11 +1061,11 @@
             <div class="problem-grid">
                 <div class="problem-card">
                     <h4>Crushing Debt Burden</h4>
-                    <p>Banks pursuing recovery, finance companies harassing, credit ratings collapsing—conventional solutions merely exacerbate your predicament.</p>
+                    <p>Bank recovery actions, persistent creditor harassment, credit rating deterioration—conventional remedies merely compound your predicament.</p>
                 </div>
                 <div class="problem-card">
                     <h4>Regulatory Scrutiny</h4>
-                    <p>SFC, HKMA, IRD correspondence arriving—one misstep and your licence is forfeit, criminal liability looms.</p>
+                    <p>Correspondence from the SFC, HKMA, or IRD—a single misstep may result in licence revocation or criminal liability.</p>
                 </div>
                 <div class="problem-card">
                     <h4>Reputational Crisis</h4>
@@ -1038,7 +1073,7 @@
                 </div>
                 <div class="problem-card">
                     <h4>Transaction Risks</h4>
-                    <p>M&A pitfalls, investment fraud, concealed liabilities—inadequate due diligence exacts a devastating toll.</p>
+                    <p>M&A pitfalls, investment fraud, concealed liabilities—inadequate due diligence exacts a severe toll.</p>
                 </div>
             </div>
         </div>
@@ -1052,106 +1087,137 @@
                 <div class="divider"></div>
             </div>
 
-            <!-- Service Category 1 - IVA -->
+            <!-- Service Category 1 -->
             <div class="service-category">
-                <h3><a href="http://hongkongiva.org" target="_blank">香港 IVA 辦事處</a></h3>
-                <h4>Hong Kong IVA Office</h4>
+                <div class="service-category-header">
+                    <div>
+                        <h3>香港 IVA 辦事處</h3>
+                        <h4>Hong Kong IVA Office</h4>
+                    </div>
+                    <a href="http://hongkongiva.org" target="_blank" class="external-link">
+                        <i class="fas fa-external-link-alt"></i> 訪問專屬網站
+                    </a>
+                </div>
                 <div class="service-list">
                     <div class="service-item">
                         <h5>個人自願安排 (IVA)</h5>
-                        <p>重獲財務自由，終結債務追討騷擾。保護您的資產、收入及家庭安寧，讓您專注事業發展。</p>
-                        <span class="service-cta">擺脫債務枷鎖 →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>擺脫無止境追數，重獲財務自由</p>
+                        <p>立即終止債權人滋擾，保護您的資產與尊嚴。一次過解決債務困擾，開展全新人生。</p>
+                        <a href="#contact" class="service-cta">免費評估您的方案 →</a>
                     </div>
                     <div class="service-item">
                         <h5>企業清盤策略</h5>
-                        <p>體面退場，保全個人聲譽。專業規劃讓您在最短時間內完成程序，減少對個人信貸的長期影響。</p>
-                        <span class="service-cta">體面收官 →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>體面退場，保護個人資產</p>
+                        <p>專業規劃除牌或清算程序，避免董事個人承擔不必要責任，確保您的商譽不受損害。</p>
+                        <a href="#contact" class="service-cta">了解您的退出選項 →</a>
                     </div>
                     <div class="service-item">
                         <h5>呆壞賬追收策略</h5>
-                        <p>無需昂貴訴訟費用，快速收回欠款。我們的談判策略讓債務人主動還款，為您節省時間與金錢。</p>
-                        <span class="service-cta">高效收回資金 →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>無需訴訟，高效追回欠款</p>
+                        <p>以「成本博弈」策略施壓債務人，省卻高昂訴訟費用及漫長等待，快速回籠資金。</p>
+                        <a href="#contact" class="service-cta">立即追回您的資金 →</a>
                     </div>
                     <div class="service-item">
                         <h5>資產保護與隔離</h5>
-                        <p>未雨綢繆，守護畢生心血。合法架構讓您的資產免受未來不確定性威脅，安心傳承。</p>
-                        <span class="service-cta">守護您的財富 →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>未雨綢繆，守護畢生心血</p>
+                        <p>破產前合法資產規劃，透過專業架構保護您的財富免受債權人追索。</p>
+                        <a href="#contact" class="service-cta">保護您的資產 →</a>
                     </div>
                     <div class="service-item">
                         <h5>法律效力還款協議</h5>
-                        <p>白紙黑字，保障雙方權益。具法律約束力的協議讓還款有據可依，避免日後爭議。</p>
-                        <span class="service-cta">確立法律保障 →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>具法律約束力，雙方安心</p>
+                        <p>專業起草還款協議，確保您的權益受法律保障，避免日後爭議。</p>
+                        <a href="#contact" class="service-cta">草擬您的協議 →</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Service Category 2 - Compliance -->
+            <!-- Service Category 2 -->
             <div class="service-category">
-                <h3>鉅源合規及法務</h3>
-                <h4>Compliance and Legal Affairs</h4>
+                <div class="service-category-header">
+                    <div>
+                        <h3>鉅源合規及法務</h3>
+                        <h4>Compliance and Legal Affairs</h4>
+                    </div>
+                </div>
                 <div class="service-list">
                     <div class="service-item">
                         <h5>監管調查應對</h5>
-                        <p>從容面對監管機構，避免不必要的處罰。專業準備讓您在調查中佔據主動，保護您的牌照與聲譽。</p>
-                        <span class="service-cta">化危為機 →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>化被動為主動，掌握調查節奏</p>
+                        <p>專業應對證監會、金管局等監管機構查詢，策略性準備文件，最大程度降低處分風險。</p>
+                        <a href="#contact" class="service-cta">獲取專業支援 →</a>
                     </div>
                     <div class="service-item">
                         <h5>專業牌照辯護</h5>
-                        <p>捍衛您的執業資格，保住多年努力成果。我們的準備工作讓您在紀律聆訊中展現最佳狀態。</p>
-                        <span class="service-cta">保衛執業資格 →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>保住執照，保住事業</p>
+                        <p>協助持牌人紀律聆訊準備，專業辯護策略，捍衛您多年努力建立的專業資格。</p>
+                        <a href="#contact" class="service-cta">保護您的牌照 →</a>
                     </div>
                     <div class="service-item">
                         <h5>董事及股東責任評估</h5>
-                        <p>提前識別風險，避免個人承擔不必要責任。清晰了解法定義務，讓您作出明智決策。</p>
-                        <span class="service-cta">釐清責任邊界 →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>提前識別風險，規避法律責任</p>
+                        <p>全面評估刑事及民事風險，提供法定責任之程序意見，讓您作出明智決策。</p>
+                        <a href="#contact" class="service-cta">評估您的風險 →</a>
                     </div>
                     <div class="service-item">
                         <h5>知識產權及爭議解決</h5>
-                        <p>快速止血，減少訴訟成本。談判解決讓雙方都能接受，避免曠日持久的法律戰。</p>
-                        <span class="service-cta">高效解決爭議 →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>快速和解，節省時間成本</p>
+                        <p>專業處理版權侵權和解及商業糾紛談判，以最低成本達成最佳解決方案。</p>
+                        <a href="#contact" class="service-cta">解決您的爭議 →</a>
                     </div>
                     <div class="service-item">
                         <h5>危機公關管理</h5>
-                        <p>迅速控制輿論，重建公眾信心。專業的聲明與媒體策略讓您的品牌轉危為安。</p>
-                        <span class="service-cta">重塑品牌形象 →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>轉危為機，重建公眾信心</p>
+                        <p>專業聲譽管理、傳媒聲明策略及形象修復，將負面影響降至最低。</p>
+                        <a href="#contact" class="service-cta">修復您的形象 →</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Service Category 3 - Intelligence -->
+            <!-- Service Category 3 -->
             <div class="service-category">
-                <h3>鉅源智庫</h3>
-                <h4>Corporate Intelligence</h4>
+                <div class="service-category-header">
+                    <div>
+                        <h3>鉅源智庫</h3>
+                        <h4>Corporate Intelligence</h4>
+                    </div>
+                </div>
                 <div class="service-list">
                     <div class="service-item">
                         <h5>併購前盡職調查</h5>
-                        <p>避免買入「地雷」，確保每分錢都花得值得。深度調查揭示隱藏風險，讓您談判時佔據優勢。</p>
-                        <span class="service-cta">明智投資決策 →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>洞察先機，避開投資陷阱</p>
+                        <p>簡化版、標準版或深度版調查，全面核實財務健康、資產狀況及隱藏負債，讓您投資無憂。</p>
+                        <a href="#contact" class="service-cta">保障您的投資 →</a>
                     </div>
                     <div class="service-item">
                         <h5>投資者準備服務</h5>
-                        <p>讓投資者對您一見傾心。專業的商業計劃書與財務預測，大幅提升融資成功率。</p>
-                        <span class="service-cta">加速融資進程 →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>提升融資成功率，加速業務擴展</p>
+                        <p>專業商業計劃書撰寫、財務預測及代表出席投資研討會，讓投資者對您刮目相看。</p>
+                        <a href="#contact" class="service-cta">準備迎接投資 →</a>
                     </div>
                     <div class="service-item">
                         <h5>企業顧問年度保護</h5>
-                        <p>全年無憂營運，隨時獲得專業支援。有問題即時諮詢，防患於未然勝於亡羊補牢。</p>
-                        <span class="service-cta">全年專業護航 →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>隨時支援，安心營運</p>
+                        <p>營運風險按需諮詢，涵蓋牌照、檢查等各方面，讓您專注核心業務發展。</p>
+                        <a href="#contact" class="service-cta">獲取年度保障 →</a>
                     </div>
                     <div class="service-item">
                         <h5>專業資源整合</h5>
-                        <p>一站式解決所有專業需求。無需四處尋找，我們為您配對最合適的律師、會計師及專家。</p>
-                        <span class="service-cta">一站式專業服務 →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>一站式配對，省時省力</p>
+                        <p>為您配對合適律師或專業人士執行特定需求，無需費時搜索，直達優質資源。</p>
+                        <a href="#contact" class="service-cta">配對專業人士 →</a>
                     </div>
                     <div class="service-item">
-                        <h5>KOL及網紅合作策劃</h5>
-                        <p>借力打力，快速建立品牌形象。與合適的意見領袖合作，讓您的品牌觸及更廣泛受眾。</p>
-                        <span class="service-cta">擴大品牌影響力 →</span>
+                        <h5>KOL 品牌形象合作</h5>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>借力網紅，提升品牌知名度</p>
+                        <p>策劃與意見領袖合作，建立正面企業形象，擴大市場影響力及公眾認受性。</p>
+                        <a href="#contact" class="service-cta">提升品牌影響力 →</a>
                     </div>
                     <div class="service-item">
                         <h5>初創專業網站建設</h5>
-                        <p>專業形象從網站開始。為您打造令人印象深刻的企業網站，提升客戶信任度與轉換率。</p>
-                        <span class="service-cta">建立專業形象 →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>專業形象，贏取客戶信任</p>
+                        <p>專業企業網站重塑或全新建立，讓您的線上形象與業務實力相匹配。</p>
+                        <a href="#contact" class="service-cta">升級您的網站 →</a>
                     </div>
                 </div>
             </div>
@@ -1166,106 +1232,137 @@
                 <div class="divider"></div>
             </div>
 
-            <!-- Service Category 1 - IVA -->
+            <!-- Service Category 1 -->
             <div class="service-category">
-                <h3><a href="http://hongkongiva.org" target="_blank">Hong Kong IVA Office</a></h3>
-                <h4>香港 IVA 辦事處</h4>
+                <div class="service-category-header">
+                    <div>
+                        <h3>Hong Kong IVA Office</h3>
+                        <h4>香港 IVA 辦事處</h4>
+                    </div>
+                    <a href="http://hongkongiva.org" target="_blank" class="external-link">
+                        <i class="fas fa-external-link-alt"></i> VISIT DEDICATED PORTAL
+                    </a>
+                </div>
                 <div class="service-list">
                     <div class="service-item">
                         <h5>Individual Voluntary Arrangement (IVA)</h5>
-                        <p>Reclaim your financial liberty and terminate creditor harassment forthwith. Preserve your assets, income, and domestic tranquillity whilst advancing your career.</p>
-                        <span class="service-cta">Break Free from Debt →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>Cease creditor harassment, reclaim financial autonomy</p>
+                        <p>Obtain immediate statutory protection from creditor actions whilst preserving your assets and dignity. Resolve indebtedness comprehensively and embark upon a fresh chapter.</p>
+                        <a href="#contact" class="service-cta">Request complimentary assessment →</a>
                     </div>
                     <div class="service-item">
                         <h5>Corporate Winding-up Strategy</h5>
-                        <p>Execute a dignified exit preserving personal reputation intact. Our professional planning expedites proceedings whilst minimising long-term credit implications.</p>
-                        <span class="service-cta">Honourable Resolution →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>Orderly exit, personal asset preservation</p>
+                        <p>Strategic planning for delisting or liquidation proceedings, mitigating director personal liability and safeguarding your professional standing.</p>
+                        <a href="#contact" class="service-cta">Explore your exit options →</a>
                     </div>
                     <div class="service-item">
                         <h5>Bad Debt Recovery Strategy</h5>
-                        <p>Recover outstanding sums without incurring substantial litigation costs. Our negotiation methodology compels voluntary repayment, conserving your time and capital.</p>
-                        <span class="service-cta">Efficient Capital Recovery →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>Recover funds without costly litigation</p>
+                        <p>Deploy strategic "cost-pressure" methodology against debtors, circumventing substantial litigation expenses and protracted timelines, achieving expeditious fund recovery.</p>
+                        <a href="#contact" class="service-cta">Recover your outstanding debts →</a>
                     </div>
                     <div class="service-item">
                         <h5>Asset Protection & Segregation</h5>
-                        <p>Prudent foresight to safeguard your life's endeavours. Lawful structures shield your assets from future contingencies, ensuring secure succession.</p>
-                        <span class="service-cta">Protect Your Wealth →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>Proactive planning, safeguard your wealth</p>
+                        <p>Pre-insolvency lawful asset structuring through professional frameworks, shielding your patrimony from creditor claims.</p>
+                        <a href="#contact" class="service-cta">Protect your assets →</a>
                     </div>
                     <div class="service-item">
                         <h5>Legally Binding Repayment Agreements</h5>
-                        <p>Documented certainty protecting all parties' interests. Enforceable agreements establish clear repayment obligations, forestalling future disputes.</p>
-                        <span class="service-cta">Establish Legal Certainty →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>Enforceable terms, mutual certainty</p>
+                        <p>Professional drafting of repayment agreements ensuring your interests receive full legal protection and forestalling future disputes.</p>
+                        <a href="#contact" class="service-cta">Draft your agreement →</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Service Category 2 - Compliance -->
+            <!-- Service Category 2 -->
             <div class="service-category">
-                <h3>Compliance and Legal Affairs</h3>
-                <h4>鉅源合規及法務</h4>
+                <div class="service-category-header">
+                    <div>
+                        <h3>Compliance and Legal Affairs</h3>
+                        <h4>鉅源合規及法務</h4>
+                    </div>
+                </div>
                 <div class="service-list">
                     <div class="service-item">
                         <h5>Regulatory Investigation Response</h5>
-                        <p>Face regulatory bodies with composure, circumventing unnecessary penalties. Professional preparation positions you advantageously, protecting your licence and standing.</p>
-                        <span class="service-cta">Transform Crisis to Opportunity →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>Seize control, dictate the investigation tempo</p>
+                        <p>Professional management of enquiries from the SFC, HKMA and cognate regulatory bodies, strategic document preparation, minimising sanction exposure.</p>
+                        <a href="#contact" class="service-cta">Obtain expert support →</a>
                     </div>
                     <div class="service-item">
                         <h5>Professional Licence Defence</h5>
-                        <p>Champion your practising credentials and preserve years of professional achievement. Our preparatory work ensures optimal presentation at disciplinary proceedings.</p>
-                        <span class="service-cta">Defend Your Credentials →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>Preserve your licence, preserve your livelihood</p>
+                        <p>Comprehensive disciplinary hearing preparation for licensees, strategic defence formulation, protecting your hard-earned professional credentials.</p>
+                        <a href="#contact" class="service-cta">Defend your licence →</a>
                     </div>
                     <div class="service-item">
                         <h5>Director & Shareholder Liability Assessment</h5>
-                        <p>Identify risks proactively, avoiding unwarranted personal exposure. Comprehensive understanding of statutory duties enables informed decision-making.</p>
-                        <span class="service-cta">Clarify Liability Boundaries →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>Early risk identification, liability avoidance</p>
+                        <p>Comprehensive criminal and civil risk evaluation, procedural advice on statutory duties, enabling informed decision-making.</p>
+                        <a href="#contact" class="service-cta">Assess your exposure →</a>
                     </div>
                     <div class="service-item">
                         <h5>Intellectual Property & Dispute Resolution</h5>
-                        <p>Swift containment, minimising litigation expenditure. Negotiated settlements acceptable to all parties, avoiding protracted legal proceedings.</p>
-                        <span class="service-cta">Efficient Dispute Resolution →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>Swift settlement, conserve time and resources</p>
+                        <p>Expert handling of copyright infringement settlements and commercial dispute negotiations, achieving optimal outcomes at minimal cost.</p>
+                        <a href="#contact" class="service-cta">Resolve your dispute →</a>
                     </div>
                     <div class="service-item">
-                        <h5>Crisis Public Relations Management</h5>
-                        <p>Expeditious narrative control, rebuilding public confidence. Professional statements and media strategy transform your brand from peril to prosperity.</p>
-                        <span class="service-cta">Restore Brand Reputation →</span>
+                        <h5>Crisis Communications Management</h5>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>Transform adversity, restore public confidence</p>
+                        <p>Professional reputation management, media statement strategy and image rehabilitation, minimising reputational damage.</p>
+                        <a href="#contact" class="service-cta">Restore your reputation →</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Service Category 3 - Intelligence -->
+            <!-- Service Category 3 -->
             <div class="service-category">
-                <h3>Corporate Intelligence</h3>
-                <h4>鉅源智庫</h4>
+                <div class="service-category-header">
+                    <div>
+                        <h3>Corporate Intelligence</h3>
+                        <h4>鉅源智庫</h4>
+                    </div>
+                </div>
                 <div class="service-list">
                     <div class="service-item">
                         <h5>Pre-M&A Due Diligence</h5>
-                        <p>Avoid acquiring concealed liabilities, ensuring every pound is well-invested. Comprehensive investigation reveals hidden risks, affording negotiating advantage.</p>
-                        <span class="service-cta">Informed Investment Decisions →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>Informed decisions, circumvent investment pitfalls</p>
+                        <p>Streamlined, standard or comprehensive investigations, thorough verification of financial health, asset status and concealed liabilities, ensuring investment confidence.</p>
+                        <a href="#contact" class="service-cta">Safeguard your investment →</a>
                     </div>
                     <div class="service-item">
                         <h5>Investor Readiness Services</h5>
-                        <p>Captivate investors at first presentation. Professional business plans and financial projections substantially enhance fundraising success rates.</p>
-                        <span class="service-cta">Accelerate Funding →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>Enhanced funding prospects, accelerate growth</p>
+                        <p>Professional business plan preparation, financial projections and representation at investor forums, positioning you favourably before prospective investors.</p>
+                        <a href="#contact" class="service-cta">Prepare for investment →</a>
                     </div>
                     <div class="service-item">
                         <h5>Annual Corporate Advisory Retainer</h5>
-                        <p>Operate with year-round assurance, accessing professional counsel instantly. Immediate consultation availability—prevention surpasses remedy.</p>
-                        <span class="service-cta">Year-Round Protection →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>On-demand support, operational peace of mind</p>
+                        <p>Operational risk consultation as required, encompassing licensing, inspections and sundry matters, permitting focus on core business development.</p>
+                        <a href="#contact" class="service-cta">Secure annual protection →</a>
                     </div>
                     <div class="service-item">
                         <h5>Professional Resource Integration</h5>
-                        <p>Single-source resolution for all professional requirements. No extensive searching—we match you with optimal solicitors, accountants, and specialists.</p>
-                        <span class="service-cta">One-Stop Professional Services →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>Curated matching, conserve time and effort</p>
+                        <p>Bespoke introduction to appropriate solicitors or professionals for specific requirements, obviating protracted searches, direct access to premium resources.</p>
+                        <a href="#contact" class="service-cta">Connect with professionals →</a>
                     </div>
                     <div class="service-item">
-                        <h5>Influencer & KOL Collaboration</h5>
-                        <p>Leverage influence for rapid brand establishment. Strategic partnerships with appropriate opinion leaders extend your brand to broader audiences.</p>
-                        <span class="service-cta">Amplify Brand Reach →</span>
+                        <h5>Influencer Brand Collaboration</h5>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>Leverage influence, amplify brand recognition</p>
+                        <p>Strategic partnerships with key opinion leaders, establishing positive corporate image, expanding market influence and public acceptance.</p>
+                        <a href="#contact" class="service-cta">Elevate brand influence →</a>
                     </div>
                     <div class="service-item">
                         <h5>Startup Professional Website Development</h5>
-                        <p>Professional image commences with your digital presence. We create impressive corporate websites that enhance client confidence and conversion rates.</p>
-                        <span class="service-cta">Establish Professional Presence →</span>
+                        <p class="benefit"><i class="fas fa-check-circle benefit-icon"></i>Professional presence, engender client confidence</p>
+                        <p>Corporate website redesign or de novo creation, ensuring your digital presence befits your business capabilities.</p>
+                        <a href="#contact" class="service-cta">Upgrade your website →</a>
                     </div>
                 </div>
             </div>
@@ -1283,50 +1380,50 @@
                 <div class="credentials-showcase">
                     <div class="credential-card">
                         <div class="credential-icon"><i class="fas fa-graduation-cap"></i></div>
-                        <h4>2×</h4>
-                        <h5>MBA</h5>
-                        <p>工商管理碩士</p>
+                        <div class="credential-count">2×</div>
+                        <div class="credential-title">MBA</div>
+                        <div class="credential-desc">工商管理碩士</div>
                     </div>
                     <div class="credential-card">
                         <div class="credential-icon"><i class="fas fa-calculator"></i></div>
-                        <h4>1×</h4>
-                        <h5>CPA</h5>
-                        <p>執業會計師</p>
+                        <div class="credential-count">1×</div>
+                        <div class="credential-title">CPA</div>
+                        <div class="credential-desc">執業會計師</div>
                     </div>
                     <div class="credential-card">
                         <div class="credential-icon"><i class="fas fa-chart-line"></i></div>
-                        <h4>2×</h4>
-                        <h5>CFA</h5>
-                        <p>特許金融分析師</p>
+                        <div class="credential-count">2×</div>
+                        <div class="credential-title">CFA</div>
+                        <div class="credential-desc">特許金融分析師</div>
                     </div>
                     <div class="credential-card">
                         <div class="credential-icon"><i class="fas fa-file-invoice-dollar"></i></div>
-                        <h4>1×</h4>
-                        <h5>TAX SPECIALIST</h5>
-                        <p>稅務專家</p>
+                        <div class="credential-count">1×</div>
+                        <div class="credential-title">TAX SPECIALIST</div>
+                        <div class="credential-desc">稅務專家</div>
                     </div>
                     <div class="credential-card">
                         <div class="credential-icon"><i class="fas fa-server"></i></div>
-                        <h4>1×</h4>
-                        <h5>IS ENGINEER</h5>
-                        <p>資訊系統工程師</p>
+                        <div class="credential-count">1×</div>
+                        <div class="credential-title">IS ENGINEER</div>
+                        <div class="credential-desc">資訊系統工程師</div>
                     </div>
                     <div class="credential-card">
                         <div class="credential-icon"><i class="fas fa-tasks"></i></div>
-                        <h4>1×</h4>
-                        <h5>PMP</h5>
-                        <p>項目管理專業人士</p>
+                        <div class="credential-count">1×</div>
+                        <div class="credential-title">PMP</div>
+                        <div class="credential-desc">項目管理專業人員</div>
                     </div>
                     <div class="credential-card">
-                        <div class="credential-icon"><i class="fas fa-users-cog"></i></div>
-                        <h4>1×</h4>
-                        <h5>CPWP</h5>
-                        <p>認證專業人力資源規劃師</p>
+                        <div class="credential-icon"><i class="fas fa-pen-fancy"></i></div>
+                        <div class="credential-count">1×</div>
+                        <div class="credential-title">CPWP</div>
+                        <div class="credential-desc">專業遺囑撰寫師</div>
                     </div>
                 </div>
                 <div class="team-summary">
                     <h4>跨領域專業團隊</h4>
-                    <p>匯聚財務、法務、稅務、科技及管理各領域精英，為您提供全方位戰略支援。多元專業背景讓我們能從不同角度分析問題，制定最優解決方案。</p>
+                    <p>匯聚財務、法律、稅務、科技及項目管理精英，為您提供全方位戰略支援。我們的專業資歷不只是證書，更是解決複雜商業問題的實戰能力。</p>
                 </div>
             </div>
         </div>
@@ -1337,56 +1434,56 @@
         <div class="container">
             <div class="team-content">
                 <div class="section-header">
-                    <h2>MANAGEMENT TEAM CREDENTIALS</h2>
+                    <h2>MANAGEMENT CREDENTIALS</h2>
                     <div class="divider"></div>
                 </div>
                 <div class="credentials-showcase">
                     <div class="credential-card">
                         <div class="credential-icon"><i class="fas fa-graduation-cap"></i></div>
-                        <h4>2×</h4>
-                        <h5>MBA</h5>
-                        <p>Master of Business Administration</p>
+                        <div class="credential-count">2×</div>
+                        <div class="credential-title">MBA</div>
+                        <div class="credential-desc">Master of Business Administration</div>
                     </div>
                     <div class="credential-card">
                         <div class="credential-icon"><i class="fas fa-calculator"></i></div>
-                        <h4>1×</h4>
-                        <h5>CPA</h5>
-                        <p>Certified Public Accountant</p>
+                        <div class="credential-count">1×</div>
+                        <div class="credential-title">CPA</div>
+                        <div class="credential-desc">Certified Public Accountant</div>
                     </div>
                     <div class="credential-card">
                         <div class="credential-icon"><i class="fas fa-chart-line"></i></div>
-                        <h4>2×</h4>
-                        <h5>CFA</h5>
-                        <p>Chartered Financial Analyst</p>
+                        <div class="credential-count">2×</div>
+                        <div class="credential-title">CFA</div>
+                        <div class="credential-desc">Chartered Financial Analyst</div>
                     </div>
                     <div class="credential-card">
                         <div class="credential-icon"><i class="fas fa-file-invoice-dollar"></i></div>
-                        <h4>1×</h4>
-                        <h5>TAX SPECIALIST</h5>
-                        <p>Taxation Specialist</p>
+                        <div class="credential-count">1×</div>
+                        <div class="credential-title">TAX SPECIALIST</div>
+                        <div class="credential-desc">Taxation Specialist</div>
                     </div>
                     <div class="credential-card">
                         <div class="credential-icon"><i class="fas fa-server"></i></div>
-                        <h4>1×</h4>
-                        <h5>IS ENGINEER</h5>
-                        <p>Information Systems Engineer</p>
+                        <div class="credential-count">1×</div>
+                        <div class="credential-title">IS ENGINEER</div>
+                        <div class="credential-desc">Information Systems Engineer</div>
                     </div>
                     <div class="credential-card">
                         <div class="credential-icon"><i class="fas fa-tasks"></i></div>
-                        <h4>1×</h4>
-                        <h5>PMP</h5>
-                        <p>Project Management Professional</p>
+                        <div class="credential-count">1×</div>
+                        <div class="credential-title">PMP</div>
+                        <div class="credential-desc">Project Management Professional</div>
                     </div>
                     <div class="credential-card">
-                        <div class="credential-icon"><i class="fas fa-users-cog"></i></div>
-                        <h4>1×</h4>
-                        <h5>CPWP</h5>
-                        <p>Certified Professional Workforce Planner</p>
+                        <div class="credential-icon"><i class="fas fa-pen-fancy"></i></div>
+                        <div class="credential-count">1×</div>
+                        <div class="credential-title">CPWP</div>
+                        <div class="credential-desc">Certified Professional Will Planner</div>
                     </div>
                 </div>
                 <div class="team-summary">
                     <h4>Multidisciplinary Professional Team</h4>
-                    <p>Uniting elite expertise across finance, legal, taxation, technology, and management disciplines to deliver comprehensive strategic support. Our diverse professional backgrounds enable multi-faceted problem analysis and optimal solution formulation.</p>
+                    <p>Uniting expertise in finance, legal affairs, taxation, technology and project management to deliver comprehensive strategic support. Our credentials represent not merely qualifications, but proven capability in resolving complex commercial challenges.</p>
                 </div>
             </div>
         </div>
@@ -1402,8 +1499,8 @@
             <div class="why-grid">
                 <div class="why-card">
                     <div class="why-icon"><i class="fas fa-user-shield"></i></div>
-                    <h4>專業顧問服務模式</h4>
-                    <p>以合理費用獲得策略級專業支援。我們整合各領域專家資源，為您提供全面的商業顧問服務。</p>
+                    <h4>專業顧問協作模式</h4>
+                    <p>整合法律、會計及商業顧問資源，為您提供策略級支援。透過專業協作網絡，以合理成本獲取全方位專業服務。</p>
                 </div>
                 <div class="why-card">
                     <div class="why-icon"><i class="fas fa-network-wired"></i></div>
@@ -1429,18 +1526,18 @@
             <div class="why-grid">
                 <div class="why-card">
                     <div class="why-icon"><i class="fas fa-user-shield"></i></div>
-                    <h4>Professional Advisory Model</h4>
-                    <p>Access strategic-level professional support at reasonable cost. We integrate expert resources across disciplines to deliver comprehensive commercial advisory services.</p>
+                    <h4>Professional Advisory Collaboration Model</h4>
+                    <p>Integrating legal, accounting and business consultancy resources to provide strategic-level support. Access comprehensive professional services at proportionate cost through our collaborative network.</p>
                 </div>
                 <div class="why-card">
                     <div class="why-icon"><i class="fas fa-network-wired"></i></div>
                     <h4>Elite Professional Network</h4>
-                    <p>Integrating solicitors, accountants, auditors, and valuers—single-source resolution for complex commercial matters.</p>
+                    <p>Unified access to solicitors, accountants, auditors and valuers—resolving complex commercial matters through a single point of contact.</p>
                 </div>
                 <div class="why-card">
                     <div class="why-icon"><i class="fas fa-chess-queen"></i></div>
-                    <h4>Strategic-Level Intervention</h4>
-                    <p>Beyond mere consultancy—your strategic commercial partner. When crisis strikes, we stand beside you.</p>
+                    <h4>Strategic Intervention</h4>
+                    <p>Beyond mere advisory, we serve as your strategic business partner. In times of crisis, we stand alongside you.</p>
                 </div>
             </div>
         </div>
@@ -1448,7 +1545,7 @@
 
     <!-- Partners Slider -->
     <section class="partners-section">
-        <div class="partners-title">
+        <div class="partners-header">
             <h3 class="lang-zh">合作夥伴</h3>
             <h3 class="lang-en">OUR PARTNERS</h3>
         </div>
@@ -1462,6 +1559,8 @@
                 <div class="partner-placeholder">PARTNER 6</div>
                 <div class="partner-placeholder">PARTNER 7</div>
                 <div class="partner-placeholder">PARTNER 8</div>
+            </div>
+            <div class="partners-track">
                 <div class="partner-placeholder">PARTNER 1</div>
                 <div class="partner-placeholder">PARTNER 2</div>
                 <div class="partner-placeholder">PARTNER 3</div>
@@ -1490,7 +1589,7 @@
                     </div>
                     <div class="contact-detail">
                         <label>地址</label>
-                        <p>香港長沙灣長裕街10號<br>億利工業中心2期17樓A5-2室</p>
+                        <p>香港長沙灣長裕街10號<br>億利廣場2期17樓A5-2室</p>
                     </div>
                     <div class="contact-detail">
                         <label>商業登記號碼</label>
@@ -1533,9 +1632,9 @@
                             <label>服務類別 *</label>
                             <select name="service" required>
                                 <option value="">-- 請選擇 --</option>
-                                <option value="IVA 債務重組">IVA 債務重組</option>
-                                <option value="合規及法務">合規及法務</option>
-                                <option value="企業智庫">企業智庫</option>
+                                <option value="債務重組 IVA">香港 IVA 辦事處</option>
+                                <option value="合規及法務">鉅源合規及法務</option>
+                                <option value="企業智庫">鉅源智庫</option>
                                 <option value="網站建設">初創網站建設</option>
                                 <option value="其他">其他</option>
                             </select>
@@ -1556,7 +1655,7 @@
     <section class="contact-section lang-en" id="contact-en">
         <div class="container">
             <div class="section-header">
-                <h2>SCHEDULE YOUR CONSULTATION</h2>
+                <h2>SCHEDULE CONSULTATION</h2>
                 <div class="divider"></div>
             </div>
             <div class="contact-grid">
@@ -1571,7 +1670,7 @@
                         <p>RM A5-2, 17/F, BILLION PLAZA 2<br>10 CHEUNG YUE ST, CHEUNG SHA WAN<br>HONG KONG</p>
                     </div>
                     <div class="contact-detail">
-                        <label>BRN</label>
+                        <label>BUSINESS REGISTRATION NUMBER</label>
                         <p>79587051</p>
                     </div>
                     <div class="contact-detail">
@@ -1604,15 +1703,15 @@
                             <input type="email" name="email" required placeholder="your@email.com">
                         </div>
                         <div class="form-group">
-                            <label>PHONE *</label>
+                            <label>TELEPHONE *</label>
                             <input type="tel" name="phone" required placeholder="+852 XXXX XXXX">
                         </div>
                         <div class="form-group">
                             <label>SERVICE CATEGORY *</label>
                             <select name="service" required>
                                 <option value="">-- Please Select --</option>
-                                <option value="IVA Debt Restructuring">IVA Debt Restructuring</option>
-                                <option value="Compliance & Legal Affairs">Compliance & Legal Affairs</option>
+                                <option value="Hong Kong IVA Office">Hong Kong IVA Office</option>
+                                <option value="Compliance and Legal Affairs">Compliance and Legal Affairs</option>
                                 <option value="Corporate Intelligence">Corporate Intelligence</option>
                                 <option value="Startup Website">Startup Website Development</option>
                                 <option value="Other">Other</option>
@@ -1636,10 +1735,13 @@
             <div class="footer-logo">HORIZONTO STRATEGY</div>
             <p class="footer-info">鉅源策略有限公司 · HORIZONTO STRATEGY LIMITED</p>
             <p class="footer-info">BRN: 79587051</p>
-            <p class="footer-copyright">
+            <p class="footer-copyright lang-zh">
+                © 2026 Horizonto Strategy Limited. 版權所有。<br>
+                專業合規顧問、企業危機管理及戰略智庫服務。
+            </p>
+            <p class="footer-copyright lang-en">
                 © 2026 Horizonto Strategy Limited. All Rights Reserved.<br>
-                <span class="lang-zh-inline">專業企業顧問服務 · 債務重組 · 合規法務 · 企業智庫</span>
-                <span class="lang-en-inline">Professional Corporate Advisory · Debt Restructuring · Compliance & Legal · Corporate Intelligence</span>
+                Professional compliance advisory, corporate crisis management and strategic intelligence services.
             </p>
         </div>
     </footer>
@@ -1650,32 +1752,36 @@
             <h3>UNDER MAINTENANCE</h3>
             <p class="lang-zh">我們的LinkedIn頁面正在維護中，敬請稍候。</p>
             <p class="lang-en">Our LinkedIn page is currently under maintenance. Please check back soon.</p>
-            <button class="modal-close" onclick="closeModal()"><span class="lang-zh-inline">關閉</span><span class="lang-en-inline">CLOSE</span></button>
+            <button class="modal-close" onclick="closeModal()">
+                <span class="lang-zh">關閉</span>
+                <span class="lang-en">CLOSE</span>
+            </button>
         </div>
     </div>
 
     <script>
-        // Language Switching
-        function switchLang(lang) {
-            document.body.classList.remove('zh', 'en');
-            document.body.classList.add(lang);
+        // Language Switcher
+        function setLanguage(lang) {
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
             
-            document.getElementById('btn-zh').classList.remove('active');
-            document.getElementById('btn-en').classList.remove('active');
-            document.getElementById('btn-' + lang).classList.add('active');
-            
-            // Update HTML lang attribute
-            document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'en';
+            if (lang === 'en') {
+                document.body.classList.add('english');
+                buttons[1].classList.add('active');
+            } else {
+                document.body.classList.remove('english');
+                buttons[0].classList.add('active');
+            }
             
             // Store preference
-            localStorage.setItem('horizonto-lang', lang);
+            localStorage.setItem('preferredLanguage', lang);
         }
 
-        // Check stored language preference
+        // Load saved language preference
         document.addEventListener('DOMContentLoaded', function() {
-            const storedLang = localStorage.getItem('horizonto-lang');
-            if (storedLang) {
-                switchLang(storedLang);
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang) {
+                setLanguage(savedLang);
             }
         });
 
@@ -1688,6 +1794,7 @@
             document.getElementById('linkedinModal').style.display = 'none';
         }
 
+        // Close modal on outside click
         window.onclick = function(event) {
             const modal = document.getElementById('linkedinModal');
             if (event.target === modal) {
@@ -1695,13 +1802,12 @@
             }
         }
 
-        // Smooth scrolling
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 if (this.getAttribute('href') !== '#') {
                     e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const target = document.querySelector(targetId);
+                    const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
                         target.scrollIntoView({
                             behavior: 'smooth',
@@ -1712,7 +1818,7 @@
             });
         });
 
-        // Navbar scroll effect
+        // Navbar background on scroll
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) {
