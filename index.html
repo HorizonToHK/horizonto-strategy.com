@@ -18,6 +18,7 @@
             --gray: #2a2a2a;
             --light-gray: #888;
             --blue: #1a73e8;
+            --whatsapp-green: #b87333;
         }
 
         * {
@@ -144,15 +145,15 @@
 
         .nav-links .lang-zh,
         .nav-links .lang-en {
+            display: inline;
+        }
+
+        body.english .nav-links .lang-zh {
             display: none;
         }
 
-        body:not(.english) .nav-links .lang-zh {
-            display: block;
-        }
-
-        body.english .nav-links .lang-en {
-            display: block;
+        body:not(.english) .nav-links .lang-en {
+            display: none;
         }
 
         .mobile-menu {
@@ -521,32 +522,23 @@
         }
 
         .credential-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--copper) 0%, var(--copper-dark) 100%);
-            border-radius: 50%;
-        }
-
-        .credential-icon i {
-            font-size: 1.5rem;
-            color: var(--black);
+            font-size: 2.2rem;
+            color: var(--copper);
+            margin-bottom: 15px;
+            display: block;
         }
 
         .credential-title {
             font-family: 'Cinzel', serif;
-            font-size: 0.9rem;
-            color: var(--copper);
+            font-size: 0.85rem;
+            color: var(--copper-light);
             letter-spacing: 2px;
             margin-bottom: 8px;
             font-weight: 600;
         }
 
         .credential-desc {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--light-gray);
             line-height: 1.5;
         }
@@ -600,19 +592,9 @@
         }
 
         .why-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--copper) 0%, var(--copper-dark) 100%);
-            border-radius: 50%;
-        }
-
-        .why-icon i {
-            font-size: 1.8rem;
-            color: var(--black);
+            font-size: 2.5rem;
+            color: var(--copper);
+            margin-bottom: 20px;
         }
 
         .why-card h4 {
@@ -627,13 +609,15 @@
             font-size: 0.9rem;
         }
 
-        .why-cta {
+        .why-cta-container {
             text-align: center;
+            margin-top: 40px;
         }
 
-        .why-cta .cta-button {
-            font-size: 0.85rem;
-            padding: 15px 40px;
+        .why-cta-text {
+            font-size: 1.1rem;
+            color: var(--cream);
+            margin-bottom: 20px;
         }
 
         /* Partners Slider */
@@ -659,18 +643,18 @@
 
         .partner-item {
             flex-shrink: 0;
-            height: 50px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            opacity: 0.6;
-            filter: grayscale(100%);
+            opacity: 0.7;
             transition: all 0.3s;
+            cursor: pointer;
         }
 
         .partner-item:hover {
             opacity: 1;
-            filter: grayscale(0%);
+            transform: scale(1.1);
         }
 
         .partner-item img {
@@ -679,6 +663,12 @@
             width: auto;
             height: auto;
             object-fit: contain;
+            filter: grayscale(50%);
+            transition: filter 0.3s;
+        }
+
+        .partner-item:hover img {
+            filter: grayscale(0%);
         }
 
         @keyframes slide {
@@ -881,6 +871,61 @@
             border-top: 1px solid var(--gray);
         }
 
+        /* WhatsApp Button - LINE 1067-1115 */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--copper) 0%, var(--copper-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(184, 115, 51, 0.4);
+            z-index: 9999;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(184, 115, 51, 0.6);
+            background: linear-gradient(135deg, var(--copper-light) 0%, var(--copper) 100%);
+        }
+
+        .whatsapp-float i {
+            color: var(--black);
+            font-size: 1.8rem;
+        }
+
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--copper);
+            opacity: 0.3;
+            animation: whatsapp-pulse 2s infinite;
+        }
+
+        @keyframes whatsapp-pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+
         /* Modal */
         .modal {
             display: none;
@@ -980,6 +1025,17 @@
 
             .form-row {
                 grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+            }
+
+            .whatsapp-float i {
+                font-size: 1.6rem;
             }
         }
 
@@ -1265,7 +1321,7 @@
     </section>
 
     <!-- Services Section - English -->
-    <section class="services-section lang-en" id="services">
+    <section class="services-section lang-en" id="services-en">
         <div class="container">
             <div class="section-header">
                 <h2>PROFESSIONAL SERVICES</h2>
@@ -1419,44 +1475,49 @@
                 </div>
                 <div class="credentials-showcase">
                     <div class="credential-card">
-                        <div class="credential-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <i class="fas fa-graduation-cap credential-icon"></i>
                         <div class="credential-title">MBA</div>
                         <div class="credential-desc">工商管理碩士</div>
                     </div>
                     <div class="credential-card">
-                        <div class="credential-icon"><i class="fas fa-calculator"></i></div>
+                        <i class="fas fa-calculator credential-icon"></i>
                         <div class="credential-title">CPA</div>
                         <div class="credential-desc">執業會計師</div>
                     </div>
                     <div class="credential-card">
-                        <div class="credential-icon"><i class="fas fa-chart-line"></i></div>
+                        <i class="fas fa-chart-line credential-icon"></i>
                         <div class="credential-title">CFA</div>
                         <div class="credential-desc">特許金融分析師</div>
                     </div>
                     <div class="credential-card">
-                        <div class="credential-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                        <i class="fas fa-file-invoice-dollar credential-icon"></i>
                         <div class="credential-title">TAX SPECIALIST</div>
                         <div class="credential-desc">稅務專家</div>
                     </div>
                     <div class="credential-card">
-                        <div class="credential-icon"><i class="fas fa-server"></i></div>
+                        <i class="fas fa-server credential-icon"></i>
                         <div class="credential-title">IS ENGINEER</div>
                         <div class="credential-desc">資訊系統工程師</div>
                     </div>
                     <div class="credential-card">
-                        <div class="credential-icon"><i class="fas fa-tasks"></i></div>
+                        <i class="fas fa-tasks credential-icon"></i>
                         <div class="credential-title">PMP</div>
                         <div class="credential-desc">項目管理專業人員</div>
                     </div>
                     <div class="credential-card">
-                        <div class="credential-icon"><i class="fas fa-gem"></i></div>
+                        <i class="fas fa-gem credential-icon"></i>
                         <div class="credential-title">CPWP</div>
                         <div class="credential-desc">註冊私人財富管理師<br>Certified Private Wealth Professional</div>
                     </div>
                     <div class="credential-card">
-                        <div class="credential-icon"><i class="fas fa-shield-alt"></i></div>
+                        <i class="fas fa-shield-alt credential-icon"></i>
+                        <div class="credential-title">CFE</div>
+                        <div class="credential-desc">註冊舞弊審查師<br>Certified Fraud Examiner</div>
+                    </div>
+                    <div class="credential-card">
+                        <i class="fas fa-balance-scale credential-icon"></i>
                         <div class="credential-title">CAMS</div>
-                        <div class="credential-desc">反洗錢專家認證<br>Certified Anti-Money Laundering Specialist</div>
+                        <div class="credential-desc">認證反洗錢專家<br>Certified Anti-Money Laundering Specialist</div>
                     </div>
                 </div>
                 <div class="team-summary">
@@ -1468,7 +1529,7 @@
     </section>
 
     <!-- Team Section - English -->
-    <section class="team-section lang-en" id="team">
+    <section class="team-section lang-en" id="team-en">
         <div class="container">
             <div class="team-content">
                 <div class="section-header">
@@ -1477,42 +1538,47 @@
                 </div>
                 <div class="credentials-showcase">
                     <div class="credential-card">
-                        <div class="credential-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <i class="fas fa-graduation-cap credential-icon"></i>
                         <div class="credential-title">MBA</div>
                         <div class="credential-desc">Master of Business Administration</div>
                     </div>
                     <div class="credential-card">
-                        <div class="credential-icon"><i class="fas fa-calculator"></i></div>
+                        <i class="fas fa-calculator credential-icon"></i>
                         <div class="credential-title">CPA</div>
                         <div class="credential-desc">Certified Public Accountant</div>
                     </div>
                     <div class="credential-card">
-                        <div class="credential-icon"><i class="fas fa-chart-line"></i></div>
+                        <i class="fas fa-chart-line credential-icon"></i>
                         <div class="credential-title">CFA</div>
                         <div class="credential-desc">Chartered Financial Analyst</div>
                     </div>
                     <div class="credential-card">
-                        <div class="credential-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                        <i class="fas fa-file-invoice-dollar credential-icon"></i>
                         <div class="credential-title">TAX SPECIALIST</div>
                         <div class="credential-desc">Taxation Specialist</div>
                     </div>
                     <div class="credential-card">
-                        <div class="credential-icon"><i class="fas fa-server"></i></div>
+                        <i class="fas fa-server credential-icon"></i>
                         <div class="credential-title">IS ENGINEER</div>
                         <div class="credential-desc">Information Systems Engineer</div>
                     </div>
                     <div class="credential-card">
-                        <div class="credential-icon"><i class="fas fa-tasks"></i></div>
+                        <i class="fas fa-tasks credential-icon"></i>
                         <div class="credential-title">PMP</div>
                         <div class="credential-desc">Project Management Professional</div>
                     </div>
                     <div class="credential-card">
-                        <div class="credential-icon"><i class="fas fa-gem"></i></div>
+                        <i class="fas fa-gem credential-icon"></i>
                         <div class="credential-title">CPWP</div>
                         <div class="credential-desc">Certified Private Wealth Professional</div>
                     </div>
                     <div class="credential-card">
-                        <div class="credential-icon"><i class="fas fa-shield-alt"></i></div>
+                        <i class="fas fa-shield-alt credential-icon"></i>
+                        <div class="credential-title">CFE</div>
+                        <div class="credential-desc">Certified Fraud Examiner</div>
+                    </div>
+                    <div class="credential-card">
+                        <i class="fas fa-balance-scale credential-icon"></i>
                         <div class="credential-title">CAMS</div>
                         <div class="credential-desc">Certified Anti-Money Laundering Specialist</div>
                     </div>
@@ -1549,13 +1615,14 @@
                     <p>不只是顧問，是您的商業戰略夥伴。危機當前，我們與您並肩作戰。</p>
                 </div>
                 <div class="why-card">
-                    <div class="why-icon"><i class="fas fa-clock"></i></div>
-                    <h4>快速回應</h4>
-                    <p>24小時內初步評估，緊急情況即時處理。時間就是金錢，我們珍惜您的每一分每一秒。</p>
+                    <div class="why-icon"><i class="fas fa-lock"></i></div>
+                    <h4>絕對保密</h4>
+                    <p>所有諮詢內容嚴格保密，保護您的商業機密及個人私隱。專業操守，值得信賴。</p>
                 </div>
             </div>
-            <div class="why-cta">
-                <a href="#contact" class="cta-button">立即預約免費諮詢</a>
+            <div class="why-cta-container">
+                <p class="why-cta-text">立即採取行動，掌握主動權</p>
+                <a href="#contact" class="cta-button">預約免費諮詢</a>
             </div>
         </div>
     </section>
@@ -1584,12 +1651,13 @@
                     <p>Beyond mere advisory, we serve as your strategic business partner. In times of crisis, we stand alongside you.</p>
                 </div>
                 <div class="why-card">
-                    <div class="why-icon"><i class="fas fa-clock"></i></div>
-                    <h4>Rapid Response</h4>
-                    <p>Preliminary assessment within 24 hours, immediate handling for urgent matters. Time is of the essence—we value every moment.</p>
+                    <div class="why-icon"><i class="fas fa-lock"></i></div>
+                    <h4>Absolute Confidentiality</h4>
+                    <p>All consultations maintained in strictest confidence, safeguarding your commercial secrets and personal privacy. Professional integrity you can trust.</p>
                 </div>
             </div>
-            <div class="why-cta">
+            <div class="why-cta-container">
+                <p class="why-cta-text">Take action now—seize the initiative</p>
                 <a href="#contact" class="cta-button">BOOK FREE CONSULTATION</a>
             </div>
         </div>
@@ -1599,55 +1667,55 @@
     <section class="partners-section">
         <div class="partners-slider">
             <div class="partners-track">
-                <a href="https://www.oro.gov.hk/" target="_blank" class="partner-item">
+                <a href="https://www.oro.gov.hk/" target="_blank" class="partner-item" title="Official Receiver's Office">
                     <img src="https://www.oro.gov.hk/images/logo_chi_m.png" alt="ORO">
                 </a>
-                <a href="#" target="_blank" class="partner-item">
-                    <img src="https://via.placeholder.com/150x50?text=Partner+2" alt="Partner 2">
+                <a href="#" class="partner-item" title="Partner 2">
+                    <img src="assets/partners/partner2.png" alt="Partner 2" onerror="this.parentElement.style.display='none'">
                 </a>
-                <a href="#" target="_blank" class="partner-item">
-                    <img src="https://via.placeholder.com/150x50?text=Partner+3" alt="Partner 3">
+                <a href="#" class="partner-item" title="Partner 3">
+                    <img src="assets/partners/partner3.png" alt="Partner 3" onerror="this.parentElement.style.display='none'">
                 </a>
-                <a href="#" target="_blank" class="partner-item">
-                    <img src="https://via.placeholder.com/150x50?text=Partner+4" alt="Partner 4">
+                <a href="#" class="partner-item" title="Partner 4">
+                    <img src="assets/partners/partner4.png" alt="Partner 4" onerror="this.parentElement.style.display='none'">
                 </a>
-                <a href="#" target="_blank" class="partner-item">
-                    <img src="https://via.placeholder.com/150x50?text=Partner+5" alt="Partner 5">
+                <a href="#" class="partner-item" title="Partner 5">
+                    <img src="assets/partners/partner5.png" alt="Partner 5" onerror="this.parentElement.style.display='none'">
                 </a>
-                <a href="#" target="_blank" class="partner-item">
-                    <img src="https://via.placeholder.com/150x50?text=Partner+6" alt="Partner 6">
+                <a href="#" class="partner-item" title="Partner 6">
+                    <img src="assets/partners/partner6.png" alt="Partner 6" onerror="this.parentElement.style.display='none'">
                 </a>
-                <a href="#" target="_blank" class="partner-item">
-                    <img src="https://via.placeholder.com/150x50?text=Partner+7" alt="Partner 7">
+                <a href="#" class="partner-item" title="Partner 7">
+                    <img src="assets/partners/partner7.png" alt="Partner 7" onerror="this.parentElement.style.display='none'">
                 </a>
-                <a href="#" target="_blank" class="partner-item">
-                    <img src="https://via.placeholder.com/150x50?text=Partner+8" alt="Partner 8">
+                <a href="#" class="partner-item" title="Partner 8">
+                    <img src="assets/partners/partner8.png" alt="Partner 8" onerror="this.parentElement.style.display='none'">
                 </a>
             </div>
             <div class="partners-track">
-                <a href="https://www.oro.gov.hk/" target="_blank" class="partner-item">
+                <a href="https://www.oro.gov.hk/" target="_blank" class="partner-item" title="Official Receiver's Office">
                     <img src="https://www.oro.gov.hk/images/logo_chi_m.png" alt="ORO">
                 </a>
-                <a href="#" target="_blank" class="partner-item">
-                    <img src="https://via.placeholder.com/150x50?text=Partner+2" alt="Partner 2">
+                <a href="#" class="partner-item" title="Partner 2">
+                    <img src="assets/partners/partner2.png" alt="Partner 2" onerror="this.parentElement.style.display='none'">
                 </a>
-                <a href="#" target="_blank" class="partner-item">
-                    <img src="https://via.placeholder.com/150x50?text=Partner+3" alt="Partner 3">
+                <a href="#" class="partner-item" title="Partner 3">
+                    <img src="assets/partners/partner3.png" alt="Partner 3" onerror="this.parentElement.style.display='none'">
                 </a>
-                <a href="#" target="_blank" class="partner-item">
-                    <img src="https://via.placeholder.com/150x50?text=Partner+4" alt="Partner 4">
+                <a href="#" class="partner-item" title="Partner 4">
+                    <img src="assets/partners/partner4.png" alt="Partner 4" onerror="this.parentElement.style.display='none'">
                 </a>
-                <a href="#" target="_blank" class="partner-item">
-                    <img src="https://via.placeholder.com/150x50?text=Partner+5" alt="Partner 5">
+                <a href="#" class="partner-item" title="Partner 5">
+                    <img src="assets/partners/partner5.png" alt="Partner 5" onerror="this.parentElement.style.display='none'">
                 </a>
-                <a href="#" target="_blank" class="partner-item">
-                    <img src="https://via.placeholder.com/150x50?text=Partner+6" alt="Partner 6">
+                <a href="#" class="partner-item" title="Partner 6">
+                    <img src="assets/partners/partner6.png" alt="Partner 6" onerror="this.parentElement.style.display='none'">
                 </a>
-                <a href="#" target="_blank" class="partner-item">
-                    <img src="https://via.placeholder.com/150x50?text=Partner+7" alt="Partner 7">
+                <a href="#" class="partner-item" title="Partner 7">
+                    <img src="assets/partners/partner7.png" alt="Partner 7" onerror="this.parentElement.style.display='none'">
                 </a>
-                <a href="#" target="_blank" class="partner-item">
-                    <img src="https://via.placeholder.com/150x50?text=Partner+8" alt="Partner 8">
+                <a href="#" class="partner-item" title="Partner 8">
+                    <img src="assets/partners/partner8.png" alt="Partner 8" onerror="this.parentElement.style.display='none'">
                 </a>
             </div>
         </div>
@@ -1675,19 +1743,20 @@
                         <label>電郵</label>
                         <p><a href="mailto:info@horizonto-strategy.com">info@horizonto-strategy.com</a></p>
                     </div>
+                    <div class="contact-detail">
+                        <label>WhatsApp</label>
+                        <p><a href="https://wa.me/85295327249" target="_blank">+852 9532 7249</a></p>
+                    </div>
                     <div class="social-links">
                         <a href="#" onclick="openModal(); return false;"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/85295327249" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
 
                 <div class="contact-form">
                     <h3>查詢表格</h3>
                     <h4>您的資料將嚴格保密</h4>
-                    <form action="https://formsubmit.co/horizonto.strategy@gmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="網站查詢 | Website Enquiry">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_template" value="table">
-                        
+                    <form action="https://formspree.io/f/xaqodzka" method="POST">
                         <div class="form-group">
                             <label>姓名 *</label>
                             <input type="text" name="name" required placeholder="您的姓名">
@@ -1715,12 +1784,15 @@
                                 <option value="其他">其他</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label>可預約時間 *</label>
-                            <div class="form-row">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>可預約日期 *</label>
                                 <input type="date" name="preferred_date" required>
+                            </div>
+                            <div class="form-group">
+                                <label>可預約時間 *</label>
                                 <select name="preferred_time" required>
-                                    <option value="">-- 選擇時段 --</option>
+                                    <option value="">-- 請選擇 --</option>
                                     <option value="09:00-12:00">09:00 - 12:00</option>
                                     <option value="13:00-16:00">13:00 - 16:00</option>
                                     <option value="17:00-20:00">17:00 - 20:00</option>
@@ -1741,7 +1813,7 @@
     </section>
 
     <!-- Contact Section - English -->
-    <section class="contact-section lang-en" id="contact">
+    <section class="contact-section lang-en" id="contact-en">
         <div class="container">
             <div class="section-header">
                 <h2>SCHEDULE CONSULTATION</h2>
@@ -1762,19 +1834,20 @@
                         <label>EMAIL</label>
                         <p><a href="mailto:info@horizonto-strategy.com">info@horizonto-strategy.com</a></p>
                     </div>
+                    <div class="contact-detail">
+                        <label>WHATSAPP</label>
+                        <p><a href="https://wa.me/85295327249" target="_blank">+852 9532 7249</a></p>
+                    </div>
                     <div class="social-links">
                         <a href="#" onclick="openModal(); return false;"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/85295327249" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
 
                 <div class="contact-form">
                     <h3>Enquiry Form</h3>
                     <h4>Your Information is Strictly Confidential</h4>
-                    <form action="https://formsubmit.co/horizonto.strategy@gmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="Website Enquiry | 網站查詢">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_template" value="table">
-                        
+                    <form action="https://formspree.io/f/xaqodzka" method="POST">
                         <div class="form-group">
                             <label>NAME *</label>
                             <input type="text" name="name" required placeholder="Your Full Name">
@@ -1802,12 +1875,15 @@
                                 <option value="Other">Other</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label>PREFERRED APPOINTMENT *</label>
-                            <div class="form-row">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>PREFERRED DATE *</label>
                                 <input type="date" name="preferred_date" required>
+                            </div>
+                            <div class="form-group">
+                                <label>PREFERRED TIME *</label>
                                 <select name="preferred_time" required>
-                                    <option value="">-- Select Time --</option>
+                                    <option value="">-- Please Select --</option>
                                     <option value="09:00-12:00">09:00 - 12:00</option>
                                     <option value="13:00-16:00">13:00 - 16:00</option>
                                     <option value="17:00-20:00">17:00 - 20:00</option>
@@ -1842,6 +1918,12 @@
             </p>
         </div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <!-- COPY FROM LINE 1460 TO 1462 - WHATSAPP BUTTON -->
+    <a href="https://wa.me/85295327249" target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- LinkedIn Modal -->
     <div class="modal" id="linkedinModal">
@@ -1880,6 +1962,13 @@
             if (savedLang) {
                 setLanguage(savedLang);
             }
+
+            // Set minimum date to today for date picker
+            const dateInputs = document.querySelectorAll('input[type="date"]');
+            const today = new Date().toISOString().split('T')[0];
+            dateInputs.forEach(input => {
+                input.setAttribute('min', today);
+            });
         });
 
         // Modal Functions
@@ -1899,37 +1988,36 @@
             }
         }
 
-        // Smooth scrolling for navigation links
+        // Smooth scrolling for navigation links - FIXED for both languages
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
                 if (href !== '#') {
                     e.preventDefault();
-                    const targetId = href.substring(1);
                     
-                    // Find all elements with this id and get the visible one
-                    const targets = document.querySelectorAll('[id="' + targetId + '"]');
-                    let visibleTarget = null;
+                    // Get the base section ID
+                    let targetId = href.substring(1);
                     
-                    targets.forEach(target => {
-                        if (target.offsetParent !== null || getComputedStyle(target).display !== 'none') {
-                            // Check if this element or its parent is visible based on language
-                            const isEnglish = document.body.classList.contains('english');
-                            const hasLangEn = target.classList.contains('lang-en');
-                            const hasLangZh = target.classList.contains('lang-zh');
-                            
-                            if ((!hasLangEn && !hasLangZh) || 
-                                (isEnglish && hasLangEn) || 
-                                (!isEnglish && hasLangZh)) {
-                                visibleTarget = target;
-                            }
-                        }
-                    });
+                    // Check if we're in English mode and need to scroll to the correct section
+                    const isEnglish = document.body.classList.contains('english');
                     
-                    if (visibleTarget) {
-                        visibleTarget.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
+                    // Map section IDs
+                    if (targetId === 'services') {
+                        targetId = isEnglish ? 'services-en' : 'services';
+                    } else if (targetId === 'team') {
+                        targetId = isEnglish ? 'team-en' : 'team';
+                    } else if (targetId === 'contact') {
+                        targetId = isEnglish ? 'contact-en' : 'contact';
+                    }
+                    
+                    const target = document.getElementById(targetId);
+                    if (target) {
+                        const navHeight = document.querySelector('nav').offsetHeight + 40;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
                         });
                     }
                 }
@@ -1946,51 +2034,5 @@
             }
         });
     </script>
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/85295327249" target="_blank" class="whatsapp-float" aria-label="Contact us on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-</a>
-
-<style>
-.whatsapp-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    background: #25D366;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-    z-index: 9999;
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-
-.whatsapp-float:hover {
-    background: #128C7E;
-    transform: scale(1.1);
-    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
-    color: white;
-}
-
-.whatsapp-float i {
-    margin: 0;
-}
-
-@media (max-width: 768px) {
-    .whatsapp-float {
-        bottom: 20px;
-        right: 20px;
-        width: 55px;
-        height: 55px;
-        font-size: 28px;
-    }
-}
-</style>
 </body>
 </html>
